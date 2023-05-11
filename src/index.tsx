@@ -1,22 +1,9 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
+const { RNMovableInk } = NativeModules;
 
-const LINKING_ERROR =
-  `The package 'react-native-movable-ink' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
-
-const MovableInk = NativeModules.MovableInk
-  ? NativeModules.MovableInk
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
-
-export function multiply(a: number, b: number): Promise<number> {
-  return MovableInk.multiply(a, b);
+interface MovableInkInterface {
+  start(): void;
+  resolveURL(url: string): Promise<string | null>;
 }
+
+export default RNMovableInk as MovableInkInterface;

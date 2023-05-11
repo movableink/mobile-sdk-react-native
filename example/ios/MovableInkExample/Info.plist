@@ -51,5 +51,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>movable_ink_universal_link_domains</key>
+	<array>
+		<string>movable-ink-7158.com</string>
+		<string>www.movable-ink-7158.com</string>
+	</array>
 </dict>
 </plist>

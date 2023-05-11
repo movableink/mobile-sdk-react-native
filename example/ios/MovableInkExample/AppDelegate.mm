@@ -1,6 +1,8 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <MovableInk/MovableInk-Swift.h>
+#import <React/RCTLinkingManager.h>
 
 @implementation AppDelegate
 
@@ -11,7 +13,22 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 
+//  [MIClient startWithLaunchOptions:launchOptions shouldRegisterForBehaviorEvents:TRUE result:^(NSString * _Nullable url, NSError * _Nullable error) {
+//    // You can leave this empty, we'll use RCTLinkingManager 
+//  }];
+  
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  return [RCTLinkingManager application:app openURL:url options:options];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+  
+  return [RCTLinkingManager application:application
+                   continueUserActivity:userActivity
+                     restorationHandler:restorationHandler];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
