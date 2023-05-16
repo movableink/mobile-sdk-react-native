@@ -9,7 +9,7 @@ interface ProductSearchProperties {
 interface ProductProperties {
   id: string
   title?: string
-  price?: string | number
+  price?: number
   url?: string
   categories?: Array<ProductCategory>
   meta?: Record<string, unknown>
@@ -23,7 +23,7 @@ interface ProductCategory {
 
 interface OrderCompletedProperties {
   id?: string
-  revenue?: string | number
+  revenue?: number
   products: Array<OrderCompletedProduct>
 }
 
@@ -31,7 +31,7 @@ interface OrderCompletedProduct {
   id: string
   title?: string
   url?: string
-  price?: string | number
+  price?: number
   quantity?: number
 }
 
