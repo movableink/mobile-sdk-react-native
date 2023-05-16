@@ -8,7 +8,7 @@ import com.facebook.react.uimanager.ViewManager
 
 class MovableInkPackage : ReactPackage {
   override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-    return listOf(MovableInkModule(reactContext))
+    return listOf(RNMovableInkModule(reactContext))
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {

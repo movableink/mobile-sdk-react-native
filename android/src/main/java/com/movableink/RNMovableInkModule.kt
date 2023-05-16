@@ -5,7 +5,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
 
-class MovableInkModule(reactContext: ReactApplicationContext) :
+class RNMovableInkModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
 
   override fun getName(): String {
@@ -20,6 +20,6 @@ class MovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   companion object {
-    const val NAME = "MovableInk"
+    const val NAME = "RNMovableInk"
   }
 }

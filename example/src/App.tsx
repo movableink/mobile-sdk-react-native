@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Linking } from 'react-native';
+import { StyleSheet, View, Text, Linking, Button } from 'react-native';
 import RNMovableInk from 'react-native-movable-ink';
 
 export default function App() {
@@ -50,7 +50,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Link: {link}</Text>
+      <Text>Resolved Link: {link}</Text>
+
+      <Button 
+        title="Test Product Searched" 
+        onPress={ (_event) => {RNMovableInk.productSearched({ query: "Test Event" })} }
+      />
     </View>
   );
 }
