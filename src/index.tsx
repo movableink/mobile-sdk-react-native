@@ -7,32 +7,32 @@ interface ProductSearchProperties {
 }
 
 interface ProductProperties {
-  id: string
-  title?: string
-  price?: number
-  url?: string
-  categories?: Array<ProductCategory>
-  meta?: Record<string, unknown>
+  id: string;
+  title?: string;
+  price?: number;
+  url?: string;
+  categories?: Array<ProductCategory>;
+  meta?: Record<string, unknown>;
 }
 
 interface ProductCategory {
-  id: string
-  title?: string
-  url?: string
+  id: string;
+  title?: string;
+  url?: string;
 }
 
 interface OrderCompletedProperties {
-  id?: string
-  revenue?: number
-  products: Array<OrderCompletedProduct>
+  id?: string;
+  revenue?: number;
+  products: Array<OrderCompletedProduct>;
 }
 
 interface OrderCompletedProduct {
-  id: string
-  title?: string
-  url?: string
-  price?: number
-  quantity?: number
+  id: string;
+  title?: string;
+  url?: string;
+  price?: number;
+  quantity?: number;
 }
 
 interface MovableInkInterface {

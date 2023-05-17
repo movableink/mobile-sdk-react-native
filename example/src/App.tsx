@@ -7,6 +7,7 @@ export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
 
   React.useEffect(() => {
+    // Make sure to call RNMovableInk.start when your app start
     RNMovableInk.start();
 
     // Get the deep link used to open the app
@@ -27,18 +28,19 @@ export default function App() {
 
     getInitialURL();
 
-    const urlListener = Linking.addEventListener('url', handleURL);
+    const urlListener = Linking.addEventListener(
+      'url',
+      (event: { url: string }) => {
+        (async () => {
+          await resolveURL(event.url);
+        })();
+      }
+    );
 
     return () => {
       urlListener.remove();
     };
   }, []);
-
-  const handleURL = (event: { url: string }) => {
-    (async () => {
-      await resolveURL(event.url);
-    })();
-  };
 
   const resolveURL = async (url: string) => {
     const clickthroughLink = await RNMovableInk.resolveURL(url);
