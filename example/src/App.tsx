@@ -18,7 +18,7 @@ export default function App() {
         // If it's not a MovableInk Link, resolveURL will return null.
         // If MovableInk can handle the link, and resolution fails, it will reject.
         if (universalLink) {
-          await resolveURL(universalLink)
+          await resolveURL(universalLink);
         }
       } catch (error) {
         console.log(error);
@@ -29,32 +29,34 @@ export default function App() {
 
     const urlListener = Linking.addEventListener('url', handleURL);
 
-    return (() => {
+    return () => {
       urlListener.remove();
-    })
+    };
   }, []);
 
-  const handleURL = (event: {url: string}) => {
+  const handleURL = (event: { url: string }) => {
     (async () => {
       await resolveURL(event.url);
     })();
   };
 
   const resolveURL = async (url: string) => {
-     const clickthroughLink = await RNMovableInk.resolveURL(url);
+    const clickthroughLink = await RNMovableInk.resolveURL(url);
 
-     if (clickthroughLink) {
-       setLink(clickthroughLink);
-     }
+    if (clickthroughLink) {
+      setLink(clickthroughLink);
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text>Resolved Link: {link}</Text>
 
-      <Button 
-        title="Test Product Searched" 
-        onPress={ (_event) => {RNMovableInk.productSearched({ query: "Test Event" })} }
+      <Button
+        title="Test Product Searched"
+        onPress={(_event) => {
+          RNMovableInk.productSearched({ query: 'Test Event' });
+        }}
       />
     </View>
   );
