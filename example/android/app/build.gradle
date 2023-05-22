@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.movableinkexample"
+    namespace "com.movableink"
     defaultConfig {
-        applicationId "com.movableinkexample"
+        applicationId "com.movableink"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

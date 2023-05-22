@@ -1,4 +1,4 @@
-package com.movableinkexample;
+package com.movableink;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
