@@ -1,4 +1,4 @@
-package com.movableink
+package com.rnmovableink
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule

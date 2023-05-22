@@ -6,6 +6,11 @@ public class RNMovableInk: NSObject {
   public func start() {
     MIClient.start { _ in }
   }
+
+  @objc(setMIU:)
+  public func setMIU(value: String) {
+    MIClient.setMIU(value)
+  }
   
   @objc(resolveURL:withResolver:withRejecter:)
   public func resolveURL(

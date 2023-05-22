@@ -1,12 +1,12 @@
 import { NativeModules } from 'react-native';
 const { RNMovableInk } = NativeModules;
 
-interface ProductSearchProperties {
+export interface ProductSearchProperties {
   query: string;
   url?: string;
 }
 
-interface ProductProperties {
+export interface ProductProperties {
   id: string;
   title?: string;
   price?: number;
@@ -15,19 +15,19 @@ interface ProductProperties {
   meta?: Record<string, unknown>;
 }
 
-interface ProductCategory {
+export interface ProductCategory {
   id: string;
   title?: string;
   url?: string;
 }
 
-interface OrderCompletedProperties {
+export interface OrderCompletedProperties {
   id?: string;
   revenue?: number;
   products: Array<OrderCompletedProduct>;
 }
 
-interface OrderCompletedProduct {
+export interface OrderCompletedProduct {
   id: string;
   title?: string;
   url?: string;
@@ -35,7 +35,7 @@ interface OrderCompletedProduct {
   quantity?: number;
 }
 
-interface MovableInkInterface {
+export interface MovableInkInterface {
   start(): void;
   resolveURL(url: string): Promise<string | null>;
   productSearched(properties: ProductSearchProperties): void;
@@ -44,6 +44,7 @@ interface MovableInkInterface {
   orderCompleted(properties: OrderCompletedProperties): void;
   categoryViewed(properties: ProductCategory): void;
   identifyUser(): void;
+  setMIU(value: string): void;
 }
 
 export default RNMovableInk as MovableInkInterface;
