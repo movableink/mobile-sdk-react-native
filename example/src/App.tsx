@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { StyleSheet, View, Text, Linking, Button } from 'react-native';
 import RNMovableInk from 'react-native-movable-ink';
 

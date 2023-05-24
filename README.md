@@ -1,6 +1,6 @@
 # react-native-movable-ink
 
-MovableInk ReactNative SDK
+MovableInk React Native SDK
 
 ## Installation
 
@@ -8,12 +8,5 @@ MovableInk ReactNative SDK
 npm install react-native-movable-ink
 ```
 
-## Usage
-
-```js
-import { multiply } from 'react-native-movable-ink';
-
-// ...
-
-const result = await multiply(3, 7);
-```
+Read more at
+[MovableInk React Native Documentation](https://sdk-mobile.movableink.com/sdk_wrappers/ReactNative/)
