@@ -78,6 +78,11 @@ public class RNMovableInk: NSObject {
   public func categoryViewed(properties: [String: Any]) {
     MIClient.categoryViewed(properties)
   }
+
+  @objc(logEvent:withProperties:)
+  public func logEvent(name: String, properties: [String: Any]) {
+    MIClient.logEvent(name: name, properties: properties)
+  }
   
   @objc(identifyUser)
   public func identifyUser() {
