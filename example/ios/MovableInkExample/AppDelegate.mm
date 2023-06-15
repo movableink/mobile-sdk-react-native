@@ -12,10 +12,6 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
-//  [MIClient startWithLaunchOptions:launchOptions shouldRegisterForBehaviorEvents:TRUE result:^(NSString * _Nullable url, NSError * _Nullable error) {
-//    // You can leave this empty, we'll use RCTLinkingManager 
-//  }];
   
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

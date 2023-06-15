@@ -1,12 +1,12 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text, Linking } from 'react-native';
+import { StyleSheet, View, Text, Linking, Button } from 'react-native';
 import RNMovableInk from 'react-native-movable-ink';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
 
   React.useEffect(() => {
+    // Make sure to call RNMovableInk.start when your app start
     RNMovableInk.start();
 
     // Get the deep link used to open the app
@@ -18,7 +18,7 @@ export default function App() {
         // If it's not a MovableInk Link, resolveURL will return null.
         // If MovableInk can handle the link, and resolution fails, it will reject.
         if (universalLink) {
-          await resolveURL(universalLink)
+          await resolveURL(universalLink);
         }
       } catch (error) {
         console.log(error);
@@ -27,30 +27,38 @@ export default function App() {
 
     getInitialURL();
 
-    const urlListener = Linking.addEventListener('url', handleURL);
+    const urlListener = Linking.addEventListener(
+      'url',
+      (event: { url: string }) => {
+        (async () => {
+          await resolveURL(event.url);
+        })();
+      }
+    );
 
-    return (() => {
+    return () => {
       urlListener.remove();
-    })
+    };
   }, []);
 
-  const handleURL = (event: {url: string}) => {
-    (async () => {
-      await resolveURL(event.url);
-    })();
-  };
-
   const resolveURL = async (url: string) => {
-     const clickthroughLink = await RNMovableInk.resolveURL(url);
+    const clickthroughLink = await RNMovableInk.resolveURL(url);
 
-     if (clickthroughLink) {
-       setLink(clickthroughLink);
-     }
+    if (clickthroughLink) {
+      setLink(clickthroughLink);
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Text>Link: {link}</Text>
+      <Text>Resolved Link: {link}</Text>
+
+      <Button
+        title="Test Product Searched"
+        onPress={(_event) => {
+          RNMovableInk.productSearched({ query: 'Test Event' });
+        }}
+      />
     </View>
   );
 }

@@ -1,10 +1,13 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["MovableInk_kotlinVersion"]
+  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RNMovableInk_kotlinVersion"]
 
   repositories {
     google()
     mavenCentral()
+    maven {
+      url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+    }
   }
 
   dependencies {
@@ -20,7 +23,7 @@ def isNewArchitectureEnabled() {
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-
+apply plugin: 'org.jetbrains.kotlin.android'
 
 def appProject = rootProject.allprojects.find { it.plugins.hasPlugin('com.android.application') }
 
@@ -29,11 +32,11 @@ if (isNewArchitectureEnabled()) {
 }
 
 def getExtOrDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["MovableInk_" + name]
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["RNMovableInk_" + name]
 }
 
 def getExtOrIntegerDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["MovableInk_" + name]).toInteger()
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["RNMovableInk_" + name]).toInteger()
 }
 
 android {
@@ -64,6 +67,9 @@ android {
 repositories {
   mavenCentral()
   google()
+  maven {
+    url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+  }
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
@@ -74,12 +80,16 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  // implementation "androidx.annotation:annotation:1.6.0"
+  // implementation 'androidx.core:core-ktx:1.10.0'
+  implementation "com.movableink.sdk:inked:1.0.0"
 }
 
 if (isNewArchitectureEnabled()) {
   react {
     jsRootDir = file("../src/")
-    libraryName = "MovableInk"
-    codegenJavaPackageName = "com.movableink"
+    libraryName = "RNMovableInk"
+    codegenJavaPackageName = "com.rnmovableink"
   }
 }

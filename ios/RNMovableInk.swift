@@ -1,20 +1,15 @@
 import MovableInk
 
 @objc(RNMovableInk)
-public class RNMovableInk: NSObject {
-  @objc(multiply:withB:withResolver:withRejecter:)
-  public func multiply(
-    a: Float,
-    b: Float,
-    resolve:RCTPromiseResolveBlock,
-    reject:RCTPromiseRejectBlock
-  ) {
-    resolve(a*b)
-  }
-  
+public class RNMovableInk: NSObject {  
   @objc(start)
   public func start() {
     MIClient.start { _ in }
+  }
+
+  @objc(setMIU:)
+  public func setMIU(value: String) {
+    MIClient.setMIU(value)
   }
   
   @objc(resolveURL:withResolver:withRejecter:)
@@ -57,5 +52,35 @@ public class RNMovableInk: NSObject {
         )
       }
     }
+  }
+  
+  @objc(productSearched:)
+  public func productSearched(properties: [String: Any]) {
+    MIClient.productSearched(properties)
+  }
+  
+  @objc(productViewed:)
+  public func productViewed(properties: [String: Any]) {
+    MIClient.productViewed(properties)
+  }
+  
+  @objc(productAdded:)
+  public func productAdded(properties: [String: Any]) {
+    MIClient.productAdded(properties)
+  }
+  
+  @objc(orderCompleted:)
+  public func orderCompleted(properties: [String: Any]) {
+    MIClient.orderCompleted(properties)
+  }
+  
+  @objc(categoryViewed:)
+  public func categoryViewed(properties: [String: Any]) {
+    MIClient.categoryViewed(properties)
+  }
+  
+  @objc(identifyUser)
+  public func identifyUser() {
+    MIClient.identifyUser()
   }
 }
