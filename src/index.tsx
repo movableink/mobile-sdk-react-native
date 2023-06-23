@@ -43,6 +43,7 @@ export interface MovableInkInterface {
   productAdded(properties: ProductProperties): void;
   orderCompleted(properties: OrderCompletedProperties): void;
   categoryViewed(properties: ProductCategory): void;
+  logEvent(name: string, properties: Record<string, unknown>): void;
   identifyUser(): void;
   setMIU(value: string): void;
 }
