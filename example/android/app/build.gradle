@@ -114,13 +114,13 @@ android {
     debug {
       storeFile file('/path to file')
       storePassword ''
-      keyAlias 'key0'
+      keyAlias ''
       keyPassword ''
     }
     release {
       storeFile file('/path to file')
       storePassword ''
-      keyAlias 'key0'
+      keyAlias ''
       keyPassword ''
     }
   }

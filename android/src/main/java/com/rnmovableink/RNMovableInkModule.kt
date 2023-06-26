@@ -59,7 +59,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun logEvent(name: String, properties: ReadableMap) {
-    // MIClient.logEvent(name, properties.toHashMap())
+    MIClient.logEvent(name, properties.toHashMap())
   }
 
   companion object {
