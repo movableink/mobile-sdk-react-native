@@ -56,7 +56,6 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   fun categoryViewed(properties: ReadableMap) {
     MIClient.categoryViewed(properties.toHashMap())
   }
-
   companion object {
     const val NAME = "RNMovableInk"
   }
