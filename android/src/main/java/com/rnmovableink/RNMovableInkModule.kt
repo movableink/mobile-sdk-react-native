@@ -56,6 +56,12 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   fun categoryViewed(properties: ReadableMap) {
     MIClient.categoryViewed(properties.toHashMap())
   }
+
+  @ReactMethod
+  fun logEvent(name: String, properties: ReadableMap) {
+    // MIClient.logEvent(name, properties.toHashMap())
+  }
+
   companion object {
     const val NAME = "RNMovableInk"
   }
