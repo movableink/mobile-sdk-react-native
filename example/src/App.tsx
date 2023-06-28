@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Linking, Button } from 'react-native';
-import RNMovableInk from 'react-native-movable-ink';
+import RNMovableInk from '@movable/react-native-sdk';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
