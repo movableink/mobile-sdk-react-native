@@ -11,7 +11,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
+    classpath "com.android.tools.build:gradle:7.2.2"
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -83,7 +83,7 @@ dependencies {
 
   // implementation "androidx.annotation:annotation:1.6.0"
   // implementation 'androidx.core:core-ktx:1.10.0'
-  implementation "com.movableink.sdk:inked:1.0.0"
+  implementation "com.movableink.sdk:inked:1.1.2"
 }
 
 if (isNewArchitectureEnabled()) {
