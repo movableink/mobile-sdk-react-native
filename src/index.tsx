@@ -9,7 +9,7 @@ export interface ProductSearchProperties {
 export interface ProductProperties {
   id: string;
   title?: string;
-  price?: number;
+  price?: string;
   url?: string;
   categories?: Array<ProductCategory>;
   meta?: Record<string, unknown>;
@@ -23,7 +23,7 @@ export interface ProductCategory {
 
 export interface OrderCompletedProperties {
   id?: string;
-  revenue?: number;
+  revenue?: string;
   products: Array<OrderCompletedProduct>;
 }
 
@@ -41,6 +41,7 @@ export interface MovableInkInterface {
   productSearched(properties: ProductSearchProperties): void;
   productViewed(properties: ProductProperties): void;
   productAdded(properties: ProductProperties): void;
+  productRemoved(properties: ProductProperties): void;
   orderCompleted(properties: OrderCompletedProperties): void;
   categoryViewed(properties: ProductCategory): void;
   logEvent(name: string, properties: Record<string, unknown>): void;
