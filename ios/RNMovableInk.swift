@@ -68,6 +68,11 @@ public class RNMovableInk: NSObject {
   public func productAdded(properties: [String: Any]) {
     MIClient.productAdded(properties)
   }
+
+  @objc(productRemoved:)
+  public func productRemoved(properties: [String: Any]) {
+    MIClient.productRemoved(properties)
+  }
   
   @objc(orderCompleted:)
   public func orderCompleted(properties: [String: Any]) {

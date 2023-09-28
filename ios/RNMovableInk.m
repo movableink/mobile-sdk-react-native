@@ -12,6 +12,7 @@ RCT_EXTERN_METHOD(resolveURL:(NSString *)link
 RCT_EXTERN_METHOD(productSearched:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(productViewed:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(productAdded:(NSDictionary *)properties)
+RCT_EXTERN_METHOD(productRemoved:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(orderCompleted:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(categoryViewed:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(logEvent(NSString *)name withProperties:(NSDictionary *)properties)
