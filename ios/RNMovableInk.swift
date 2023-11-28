@@ -93,4 +93,9 @@ public class RNMovableInk: NSObject {
   public func identifyUser() {
     MIClient.identifyUser()
   }
+
+  @objc(checkPasteboardOnInstall)
+  public func checkPasteboardOnInstall() {
+    MIClient.checkPasteboardOnInstall()
+  }
 }
