@@ -53,6 +53,14 @@ public class RNMovableInk: NSObject {
       }
     }
   }
+
+  @objc(checkPasteboardOnInstall:withRejecter:)
+  public func checkPasteboardOnInstall(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+    Task {
+      let value = await MIClient.checkPasteboardOnInstall()
+      resolve(value?.absoluteString)
+    }
+  }
   
   @objc(productSearched:)
   public func productSearched(properties: [String: Any]) {
@@ -92,10 +100,5 @@ public class RNMovableInk: NSObject {
   @objc(identifyUser)
   public func identifyUser() {
     MIClient.identifyUser()
-  }
-
-  @objc(checkPasteboardOnInstall)
-  public func checkPasteboardOnInstall() {
-    MIClient.checkPasteboardOnInstall()
   }
 }

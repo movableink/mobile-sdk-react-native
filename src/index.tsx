@@ -47,7 +47,7 @@ export interface MovableInkInterface {
   logEvent(name: string, properties: Record<string, unknown>): void;
   identifyUser(): void;
   setMIU(value: string): void;
-  checkPasteboardOnInstall(): void;
+  checkPasteboardOnInstall(): Promise<string | null>;
 }
 
 export default RNMovableInk as MovableInkInterface;
