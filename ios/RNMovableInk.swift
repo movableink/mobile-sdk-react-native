@@ -62,14 +62,10 @@ public class RNMovableInk: NSObject {
     }
   }
 
-  @objc(showInAppMessage:withResolver:withRejecter:)
-  public func showInAppMessage(
-    link: String,
-    resolve: @escaping RCTPromiseResolveBlock,
-    reject: @escaping RCTPromiseRejectBlock
-  ) {
-    MIClient.showInAppMessage(with: link) { buttonID in 
-      resolve(buttonID)
+  @objc(showInAppMessage:withCallback:)
+  public func showInAppMessage(link: String, callback: @escaping RCTResponseSenderBlock) {
+    MIClient.showInAppMessage(with: link) { buttonID in
+      callback([buttonID])
     }
   } 
   
