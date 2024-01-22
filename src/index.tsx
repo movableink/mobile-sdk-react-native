@@ -48,6 +48,7 @@ export interface MovableInkInterface {
   identifyUser(): void;
   setMIU(value: string): void;
   checkPasteboardOnInstall(): Promise<string | null>;
+  showInAppMessage(url: string): Promise<string>;
 }
 
 export default RNMovableInk as MovableInkInterface;

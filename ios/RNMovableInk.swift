@@ -61,6 +61,17 @@ public class RNMovableInk: NSObject {
       resolve(value?.absoluteString)
     }
   }
+
+  @objc(showInAppMessage:withResolver:withRejecter:)
+  public func showInAppMessage(
+    link: String,
+    resolve: @escaping RCTPromiseResolveBlock,
+    reject: @escaping RCTPromiseRejectBlock
+  ) {
+    MIClient.showInAppMessage(with: link) { buttonID in 
+      resolve(buttonID)
+    }
+  } 
   
   @objc(productSearched:)
   public func productSearched(properties: [String: Any]) {
