@@ -22,7 +22,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun identifyUser(value: String) {
+  fun identifyUser() {
     MIClient.identifyUser()
   }
 

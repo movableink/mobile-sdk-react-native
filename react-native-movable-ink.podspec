@@ -11,12 +11,12 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => "13.0" }
+  s.platforms    = { :ios => "13.4" }
   s.source       = { :git => "https://github.com/movableink/mobile-sdk-react-native.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
-  s.dependency 'MovableInk', '1.3.0'
+  s.dependency 'MovableInk', '1.5.0'
   s.dependency "React-Core"
 
   # Don't install the dependencies when we run `pod install` in the old architecture.
