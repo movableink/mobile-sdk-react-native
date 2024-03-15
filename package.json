@@ -37,9 +37,7 @@
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
   },
   "keywords": [
-    "react-native",
-    "ios",
-    "android"
+    "movableink"
   ],
   "repository": "https://github.com/movableink/mobile-sdk-react-native",
   "author": "MovableInk <dev@movableink.com> (https://github.com/movableink)",
@@ -71,7 +69,7 @@
     "react-native": "0.71.7",
     "react-native-builder-bob": "^0.20.0",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2"
+    "typescript": "^5.4.2"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -81,8 +79,9 @@
     "react-native": "*"
   },
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">= 18.0.0"
   },
+  "packageManager": "yarn@4.1.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
@@ -155,8 +154,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "metro": "^0.76.7"
   }
 }

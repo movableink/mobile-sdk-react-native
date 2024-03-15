@@ -2,6 +2,7 @@ package com.rnmovableink
 
 import com.facebook.react.bridge.*
 import com.movableink.inked.MIClient
+import com.movableink.inked.MIClient.setMIU
 
 class RNMovableInkModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
@@ -21,7 +22,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun identifyUser(value: String) {
+  fun identifyUser() {
     MIClient.identifyUser()
   }
 
