@@ -20,6 +20,9 @@ RCT_EXTERN_METHOD(identifyUser)
 RCT_EXTERN_METHOD(checkPasteboardOnInstall:(RCTPromiseResolveBlock)resolve
                   withRejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(showInAppMessage:(NSString *)link withCallback:(RCTResponseSenderBlock)callback)
+
+
 + (BOOL)requiresMainQueueSetup {
   return TRUE;
 }

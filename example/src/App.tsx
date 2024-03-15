@@ -6,7 +6,7 @@ export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
 
   React.useEffect(() => {
-    // Make sure to call RNMovableInk.start when your app start
+    // Make sure to call RNMovableInk.start when your app starts
     RNMovableInk.start();
 
     // Get the deep link used to open the app
@@ -57,6 +57,18 @@ export default function App() {
         title="Test Product Searched"
         onPress={(_event) => {
           RNMovableInk.productSearched({ query: 'Test Event' });
+        }}
+      />
+
+      <Button
+        title="Show In App Message"
+        onPress={(_event) => {
+          RNMovableInk.showInAppMessage(
+            'https://www.movable-ink-7158.com/p/rp/bc49c08945403625.html',
+            (buttonID) => {
+              console.log(buttonID);
+            }
+          );
         }}
       />
     </View>
