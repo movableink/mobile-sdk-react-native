@@ -65,6 +65,12 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   fun logEvent(name: String, properties: ReadableMap) {
     MIClient.logEvent(name, properties.toHashMap())
   }
+  @ReactMethod
+  fun checkPasteboardOnInstall( promise: Promise) {
+    MIClient.checkPasteboardOnInstall { resolved ->
+      promise.resolve(resolved)
+    }
+  }
 
   companion object {
     const val NAME = "RNMovableInk"
