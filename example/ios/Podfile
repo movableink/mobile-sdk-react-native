@@ -44,6 +44,7 @@ target 'MovableInkExample' do
   )
 
   pod 'react-native-movable-ink', path: '../..'
+  # pod 'MovableInk', path: "../../../mi-pod"
 
   target 'MovableInkExampleTests' do
     inherit! :complete
