@@ -1,8 +1,10 @@
 package com.rnmovableink
 
 import com.facebook.react.bridge.*
+import com.facebook.react.bridge.Callback
 import com.movableink.inked.MIClient
 import com.movableink.inked.MIClient.setMIU
+import com.movableink.inked.inAppMessage.MovableInAppClient
 
 class RNMovableInkModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
@@ -72,6 +74,21 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   fun checkPasteboardOnInstall(promise: Promise) {
     MIClient.checkPasteboardOnInstall { resolved ->
       promise.resolve(resolved)
+    }
+  }
+
+  @ReactMethod
+  fun showInAppMessage(url: String, callback: Callback) {
+    currentActivity?.runOnUiThread {
+      MIClient.showInAppBrowser(
+        currentActivity!!,
+        url,
+        listener = object : MovableInAppClient.OnUrlLoadingListener {
+            override fun onButtonClicked(value: String) {
+              callback.invoke(value)
+            }
+        },
+      )
     }
   }
 
