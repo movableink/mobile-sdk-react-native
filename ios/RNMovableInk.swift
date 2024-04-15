@@ -30,6 +30,7 @@ public class RNMovableInk: NSObject {
     
     if !MIClient.canHandleURL(url) {
       resolve(nil)
+      return
     }
     
     MIClient.resolve(url: url) { result in
