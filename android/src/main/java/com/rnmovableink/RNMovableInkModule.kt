@@ -92,6 +92,11 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
     }
   }
 
+  @ReactMethod
+  func setValidPasteboardValues(values: ReadableArray) {
+    MIClient.validPasteboardValues(values.toArrayList())
+  }
+
   companion object {
     const val NAME = "RNMovableInk"
   }

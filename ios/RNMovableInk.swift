@@ -109,4 +109,9 @@ public class RNMovableInk: NSObject {
   public func identifyUser() {
     MIClient.identifyUser()
   }
+  
+  @objc(setValidPasteboardValues:)
+  public func setValidPasteboardValues(values: [String]) {
+    MIClient.validPasteboardValues = values
+  }
 }
