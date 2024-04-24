@@ -93,7 +93,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  func setValidPasteboardValues(values: ReadableArray) {
+  fun setValidPasteboardValues(values: ReadableArray) {
     MIClient.validPasteboardValues(values.toArrayList())
   }
 
