@@ -24,6 +24,11 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
+  fun setAppInstallEventEnabled(enabled: Boolean) {
+    MIClient.appInstallEventEnabled(enabled)
+  }
+
+  @ReactMethod
   fun identifyUser() {
     MIClient.identifyUser()
   }

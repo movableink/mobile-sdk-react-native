@@ -22,6 +22,7 @@ RCT_EXTERN_METHOD(checkPasteboardOnInstall:(RCTPromiseResolveBlock)resolve
 
 RCT_EXTERN_METHOD(showInAppMessage:(NSString *)link withCallback:(RCTResponseSenderBlock)callback)
 
+RCT_EXTERN_METHOD(setAppInstallEventEnabled:(BOOL)enabled)
 RCT_EXTERN_METHOD(setValidPasteboardValues:(NSArray *)values)
 
 
