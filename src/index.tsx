@@ -49,6 +49,7 @@ export interface MovableInkInterface {
   setMIU(value: string): void;
   checkPasteboardOnInstall(): Promise<string | null>;
   showInAppMessage(url: string, callback: (buttonID: string) => void): void;
+  setAppInstallEventEnabled(enabled: boolean): void;
 }
 
 export default RNMovableInk as MovableInkInterface;

@@ -11,6 +11,11 @@ public class RNMovableInk: NSObject {
   public func setMIU(value: String) {
     MIClient.setMIU(value)
   }
+
+  @objc(setAppInstallEventEnabled:)
+  public func setAppInstallEventEnabled(enabled: Bool) {
+    MIClient.appInstallEventEnabled = enabled
+  }
   
   @objc(resolveURL:withResolver:withRejecter:)
   public func resolveURL(

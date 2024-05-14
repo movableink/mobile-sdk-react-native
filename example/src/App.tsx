@@ -6,6 +6,9 @@ export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
 
   React.useEffect(() => {
+    // If using Deferred Deep Linking, make sure to enable the app install event
+    RNMovableInk.setAppInstallEventEnabled(true);
+
     // Make sure to call RNMovableInk.start when your app starts
     RNMovableInk.start();
 
