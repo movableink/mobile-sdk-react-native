@@ -64,7 +64,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   fun categoryViewed(properties: ReadableMap) {
     MIClient.categoryViewed(properties.toHashMap())
   }
-  
+
   @ReactMethod
   fun productRemoved(properties: ReadableMap) {
     MIClient.productRemoved(properties.toHashMap())
@@ -99,7 +99,15 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun setValidPasteboardValues(values: ReadableArray) {
-    MIClient.validPasteboardValues(values.toArrayList())
+    MIClient.validPasteboardValues(values.toStringList())
+  }
+
+  fun ReadableArray.toStringList(): List<String> {
+    val stringList = mutableListOf<String>()
+    for (i in 0 until size) {
+      stringList.add(getString(i))
+    }
+    return stringList
   }
 
   companion object {
