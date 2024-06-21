@@ -15,7 +15,7 @@ RCT_EXTERN_METHOD(productAdded:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(productRemoved:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(orderCompleted:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(categoryViewed:(NSDictionary *)properties)
-RCT_EXTERN_METHOD(logEvent(NSString *)name withProperties:(NSDictionary *)properties)
+RCT_EXTERN_METHOD(logEvent:(NSString *)name withProperties:(NSDictionary *)properties)
 RCT_EXTERN_METHOD(identifyUser)
 RCT_EXTERN_METHOD(checkPasteboardOnInstall:(RCTPromiseResolveBlock)resolve
                   withRejecter:(RCTPromiseRejectBlock)reject)

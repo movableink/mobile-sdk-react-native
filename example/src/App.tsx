@@ -11,6 +11,7 @@ export default function App() {
 
     // Make sure to call RNMovableInk.start when your app starts
     RNMovableInk.start();
+    RNMovableInk.setMIU("00000000-00000000-00000000-00000000")
 
     // Get the deep link used to open the app
     const getInitialURL = async () => {
@@ -60,6 +61,13 @@ export default function App() {
         title="Test Product Searched"
         onPress={(_event) => {
           RNMovableInk.productSearched({ query: 'Test Event' });
+        }}
+      />
+
+      <Button
+        title="Test Custom Event"
+        onPress={(_event) => {
+          RNMovableInk.logEvent('test_event', { });
         }}
       />
 
