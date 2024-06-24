@@ -104,7 +104,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   fun ReadableArray.toStringList(): List<String> {
     val stringList = mutableListOf<String>()
-    for (i in 0 until size) {
+    for (i in 0 until size()) {
       stringList.add(getString(i))
     }
     return stringList
