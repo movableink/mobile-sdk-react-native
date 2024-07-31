@@ -67,7 +67,7 @@ export default function App() {
       <Button
         title="Test Custom Event"
         onPress={(_event) => {
-          RNMovableInk.logEvent('test_event', { });
+          RNMovableInk.logEvent('test_event', {});
         }}
       />
 
