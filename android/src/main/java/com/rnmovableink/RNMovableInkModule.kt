@@ -3,7 +3,6 @@ package com.rnmovableink
 import com.facebook.react.bridge.*
 import com.facebook.react.bridge.Callback
 import com.movableink.inked.MIClient
-import com.movableink.inked.MIClient.setMIU
 import com.movableink.inked.inAppMessage.MovableInAppClient
 
 class RNMovableInkModule(reactContext: ReactApplicationContext) :

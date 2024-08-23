@@ -154,5 +154,11 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@react-native-community/cli": "^14.0.1",
+    "@react-native-community/cli-platform-android": "^14.0.1",
+    "@react-native/assets-registry": "^0.75.2",
+    "react-native-gradle-plugin": "^0.71.19"
   }
 }
