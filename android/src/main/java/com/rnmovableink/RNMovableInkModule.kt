@@ -1,17 +1,19 @@
 package com.rnmovableink
 
-import com.facebook.react.bridge.*
 import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.ReadableArray
+import com.facebook.react.bridge.ReadableMap
 import com.movableink.inked.MIClient
-import com.movableink.inked.MIClient.setMIU
 import com.movableink.inked.inAppMessage.MovableInAppClient
 
-class RNMovableInkModule(reactContext: ReactApplicationContext) :
-  ReactContextBaseJavaModule(reactContext) {
-
-  override fun getName(): String {
-    return NAME
-  }
+class RNMovableInkModule(
+  reactContext: ReactApplicationContext,
+) : ReactContextBaseJavaModule(reactContext) {
+  override fun getName(): String = NAME
 
   @ReactMethod
   fun start() {
@@ -34,7 +36,10 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun resolveURL(url: String, promise: Promise) {
+  fun resolveURL(
+    url: String,
+    promise: Promise,
+  ) {
     MIClient.resolveUrlAsync(url) { resolved ->
       promise.resolve(resolved)
     }
@@ -71,7 +76,10 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun logEvent(name: String, properties: ReadableMap) {
+  fun logEvent(
+    name: String,
+    properties: ReadableMap,
+  ) {
     MIClient.logEvent(name, properties.toHashMap())
   }
 
@@ -83,16 +91,20 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun showInAppMessage(url: String, callback: Callback) {
+  fun showInAppMessage(
+    url: String,
+    callback: Callback,
+  ) {
     currentActivity?.runOnUiThread {
       MIClient.showInAppBrowser(
         currentActivity!!,
         url,
-        listener = object : MovableInAppClient.OnUrlLoadingListener {
+        listener =
+          object : MovableInAppClient.OnUrlLoadingListener {
             override fun onButtonClicked(value: String) {
               callback.invoke(value)
             }
-        },
+          },
       )
     }
   }
@@ -102,7 +114,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
     MIClient.validPasteboardValues(values.toStringList())
   }
 
-  fun ReadableArray.toStringList(): List<String> {
+  private fun ReadableArray.toStringList(): List<String> {
     val stringList = mutableListOf<String>()
     for (i in 0 until size()) {
       stringList.add(getString(i))
