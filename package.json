@@ -1,6 +1,6 @@
 {
   "name": "@movable/react-native-sdk",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "MovableInk React Native SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -81,7 +81,7 @@
   "engines": {
     "node": ">= 18.0.0"
   },
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.4.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
