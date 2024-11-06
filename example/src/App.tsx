@@ -65,6 +65,22 @@ export default function App() {
       />
 
       <Button
+        title="Test Product Added"
+        onPress={(_event) => {
+          RNMovableInk.productAdded({ 
+            id: "123", 
+            title: "Test Product",
+            price: "$10.00", 
+            meta: { 
+              "test_key": "test_value", 
+              "test_key_two": true, 
+              "test_key_three": 12345 
+            } 
+          });
+        }}
+      />
+
+      <Button
         title="Test Custom Event"
         onPress={(_event) => {
           RNMovableInk.logEvent('test_event', {});
