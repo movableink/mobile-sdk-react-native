@@ -72,7 +72,7 @@ PODS:
     - hermes-engine/Pre-built (= 0.73.5)
   - hermes-engine/Pre-built (0.73.5)
   - libevent (2.1.12)
-  - MovableInk (1.6.5)
+  - MovableInk (1.7.1)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2022.05.16.00):
     - boost
@@ -945,8 +945,8 @@ PODS:
   - React-Mapbuffer (0.73.5):
     - glog
     - React-debug
-  - react-native-movable-ink (1.5.8):
-    - MovableInk (= 1.6.5)
+  - react-native-movable-ink (1.6.0):
+    - MovableInk (= 1.7.1)
     - React-Core
   - React-nativeconfig (0.73.5)
   - React-NativeModulesApple (0.73.5):
@@ -1336,7 +1336,7 @@ SPEC CHECKSUMS:
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: 1d1835b2cc54c381909d94d1b3c8e0a2f1a94a0e
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  MovableInk: 60c93c909eca678a5c91755e966cb0a4bba37817
+  MovableInk: fbc06caa29a94071c91df984d38fbc9bfa52f7c8
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: 2544c0f1081a5fa12e108bb8cb40e5f4581ccd87
@@ -1359,7 +1359,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 32db5e364bcae8fca8cdf8891830636275add0c5
   React-logger: 0331362115f0f5b392bd7ed14636d1a3ea612479
   React-Mapbuffer: 7c35cd53a22d0be04d3f26f7881c7fb7dd230216
-  react-native-movable-ink: ec23a7fa908174dcc9584cf3519dabd906acf93a
+  react-native-movable-ink: c3fd652de2dce34f893c55d5acb4b64bbb378ec2
   React-nativeconfig: 1166714a4f7ea57a0df5c2cb44fbc70f98d580f9
   React-NativeModulesApple: 726664e9829eb5eed8170241000e46ead269a05f
   React-perflogger: 0dd9f1725d55f8264b81efadd373fe1d9cca7dc2
@@ -1386,4 +1386,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d92c2cd8a63b55c2d5826992fcf5678d25e7d24e
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
