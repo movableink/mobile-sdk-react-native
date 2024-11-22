@@ -12,7 +12,7 @@ export interface ProductProperties {
   price?: string;
   url?: string;
   categories?: Array<ProductCategory>;
-  meta?: Record<string, unknown>;
+  meta?: Record<string, string | number | boolean>;
 }
 
 export interface ProductCategory {
