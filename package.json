@@ -1,6 +1,6 @@
 {
   "name": "@movable/react-native-sdk",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "MovableInk React Native SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
