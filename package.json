@@ -1,6 +1,6 @@
 {
   "name": "@movable/react-native-sdk",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "MovableInk React Native SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,7 +37,7 @@
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
   },
   "keywords": [
-    "movableink"
+    "movableink", "movable", "moveableink", "movable ink", "moveable ink"
   ],
   "repository": "https://github.com/movableink/mobile-sdk-react-native",
   "author": "MovableInk <dev@movableink.com> (https://github.com/movableink)",
