@@ -70,7 +70,7 @@ export default function App() {
           RNMovableInk.productAdded({
             id: '123',
             title: 'Test Product',
-            price: '10.00',
+            price: 10.00,
             currency: Currency.XTS,
             meta: {
               test_key: 'test_value',
