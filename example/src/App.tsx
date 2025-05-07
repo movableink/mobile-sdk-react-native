@@ -89,12 +89,12 @@ export default function App() {
             revenue: '10.00',
             currency: Currency.XTS,
             products: [
-              { 
-                id: '123', 
+              {
+                id: '123',
                 title: 'Test Product',
-                price: '10.00'
-              }
-            ]
+                price: '10.00',
+              },
+            ],
           });
         }}
       />

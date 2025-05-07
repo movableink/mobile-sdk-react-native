@@ -185,7 +185,7 @@ export enum Currency {
   YER = 'YER',
   ZAR = 'ZAR',
   ZMW = 'ZMW',
-  ZWL = 'ZWL'
+  ZWL = 'ZWL',
 }
 
 export interface ProductSearchProperties {
