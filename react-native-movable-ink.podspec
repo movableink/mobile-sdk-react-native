@@ -16,7 +16,12 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
   
-  s.dependency "MovableInk", "1.7.3"
+  # Enable when testing local pod
+  # s.dependency "MovableInk"
+  
+  # Disable when testing local pod
+  s.dependency "MovableInk", "2.0.0"
+  
   s.dependency "React-Core"
 
   # Don't install the dependencies when we run `pod install` in the old architecture.

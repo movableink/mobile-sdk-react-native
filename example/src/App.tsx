@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Linking, Button } from 'react-native';
-import RNMovableInk from '@movable/react-native-sdk';
+import RNMovableInk, { Currency } from '@movable/react-native-sdk';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
@@ -70,12 +70,31 @@ export default function App() {
           RNMovableInk.productAdded({
             id: '123',
             title: 'Test Product',
-            price: '$10.00',
+            price: '10.00',
+            currency: Currency.XTS,
             meta: {
               test_key: 'test_value',
               test_key_two: true,
               test_key_three: 12345,
             },
+          });
+        }}
+      />
+
+      <Button
+        title="Test Order Completed"
+        onPress={(_event) => {
+          RNMovableInk.orderCompleted({
+            id: '123',
+            revenue: '10.00',
+            currency: Currency.XTS,
+            products: [
+              { 
+                id: '123', 
+                title: 'Test Product',
+                price: '10.00'
+              }
+            ]
           });
         }}
       />
