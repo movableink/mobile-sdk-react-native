@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   # s.dependency "MovableInk"
   
   # Disable when testing local pod
-  s.dependency "MovableInk", "2.0.0"
+  s.dependency "MovableInk", "2.0.1"
   
   s.dependency "React-Core"
 
