@@ -1,10 +1,10 @@
 {
   "name": "@movable/react-native-sdk",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "MovableInk React Native SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
-  "types": "lib/typescript/index.d.ts",
+  "types": "lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
