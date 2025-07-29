@@ -191,6 +191,7 @@ export enum Currency {
 export interface ProductSearchProperties {
   query: string;
   url?: string;
+  meta?: Record<string, string | number | boolean>;
 }
 
 export interface ProductProperties {
@@ -207,6 +208,7 @@ export interface ProductCategory {
   id: string;
   title?: string;
   url?: string;
+  meta?: Record<string, string | number | boolean>;
 }
 
 export interface OrderCompletedProperties {
@@ -222,6 +224,7 @@ export interface OrderCompletedProduct {
   url?: string;
   price?: number | string;
   quantity?: number;
+  meta?: Record<string, string | number | boolean>;
 }
 
 export interface MovableInkInterface {
