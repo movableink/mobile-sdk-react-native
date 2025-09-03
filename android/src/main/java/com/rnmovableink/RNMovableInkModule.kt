@@ -5,6 +5,9 @@ import com.facebook.react.bridge.Callback
 import com.movableink.inked.MIClient
 import com.movableink.inked.MIClient.setMIU
 import com.movableink.inked.inAppMessage.MovableInAppClient
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class RNMovableInkModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
@@ -30,7 +33,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun identifyUser() {
-    
+
   }
 
   @ReactMethod
@@ -82,20 +85,31 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
     }
   }
 
-  @ReactMethod
-  fun showInAppMessage(url: String, callback: Callback) {
-    currentActivity?.runOnUiThread {
-      MIClient.showInAppBrowser(
-        currentActivity!!,
-        url,
-        listener = object : MovableInAppClient.OnUrlLoadingListener {
-            override fun onButtonClicked(value: String) {
-              callback.invoke(value)
+@ReactMethod
+fun showInAppMessage(url: String, callback: Callback) {
+    val activity = currentActivity
+    if (activity is androidx.lifecycle.LifecycleOwner) {
+        activity.lifecycleScope.launch {
+            try {
+                MIClient.showInAppBrowser(
+                    activity,
+                    url,
+                    listener = object : MovableInAppClient.OnUrlLoadingListener {
+                        override fun onButtonClicked(value: String) {
+                            activity.runOnUiThread {
+                                callback.invoke(value)
+                            }
+                        }
+                    }
+                )
+            } catch (e: Exception) {
+                activity.runOnUiThread {
+                    callback.invoke("Error: ${e.message}")
+                }
             }
-        },
-      )
+        }
     }
-  }
+}
 
   @ReactMethod
   fun setValidPasteboardValues(values: ReadableArray) {
