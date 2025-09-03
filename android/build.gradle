@@ -98,6 +98,8 @@ dependencies {
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation "com.movableink.sdk:inked:2.1.0"
+  implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
+
 }
 
 if (isNewArchitectureEnabled()) {
