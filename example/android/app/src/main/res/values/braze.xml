@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="com_braze_api_key">c01080b4-9416-4b67-b637-bd5baa58ac0f</string>
+    <string translatable="false" name="com_braze_custom_endpoint">add endpoint</string>
+    <bool name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
+    <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">senderID</string>
+    <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
+    <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>
+
+
+</resources>

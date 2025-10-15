@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
       android:name="com.movableink.MainApplication"
       android:label="@string/app_name"
@@ -80,6 +80,6 @@
       </activity>
       <meta-data
            android:name="com.movableink.inked.API_KEY"
-           android:value="replace_with_api_key" />
+           android:value="amOB3L9zDFRA9qXgUMm6" />
     </application>
 </manifest>
