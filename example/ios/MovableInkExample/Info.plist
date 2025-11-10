@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Testing</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -46,17 +46,20 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>movable_ink_universal_link_domains</key>
-	<array>
-		<string>movable-ink-7158.com</string>
-		<string>www.movable-ink-7158.com</string>
-	</array>
 	<key>movable_ink_api_key</key>
 	<string>ntWfONXPwCLVuU2zrJ9D</string>
+	<key>movable_ink_universal_link_domains</key>
+	<array>
+		<string>mi-mobile-sandbox.mimobile.xyz</string>
+	</array>
 </dict>
 </plist>

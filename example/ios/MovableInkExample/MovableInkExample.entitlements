@@ -4,8 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:www.movable-ink-7158.com</string>
-		<string>applinks:movable-ink-7158.com</string>
+		<string>applinks:mi-mobile-sandbox.mimobile.xyz</string>
 	</array>
 </dict>
 </plist>

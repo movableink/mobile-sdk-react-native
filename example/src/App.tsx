@@ -107,6 +107,13 @@ export default function App() {
       />
 
       <Button
+        title="Test Resolve URL"
+        onPress={async (_event) => {
+          resolveURL('https://mi-mobile-sandbox.mimobile.xyz/p/cpm/a9a81cd32d8c68bc/c?url=https%3A%2F%2Fmi-mobile-sandbox.mimobile.xyz%2Fp%2Frpm%2Fc2caa7d789cb290d%2Furl&url_sig=50fU6twNJuB6EO');
+        }}
+      />
+
+      <Button
         title="Show In App Message"
         onPress={(_event) => {
           RNMovableInk.showInAppMessage(
