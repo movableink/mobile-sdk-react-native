@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Linking, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Linking, TouchableOpacity, Platform } from 'react-native';
 import RNMovableInk, { Currency } from '@movable/react-native-sdk';
 import Settings from './settings';
 import Braze from '@braze/react-native-sdk';
@@ -15,10 +15,7 @@ export default function App() {
 
     // Make sure to call RNMovableInk.start when your app starts
     RNMovableInk.start();
-    RNMovableInk.setMIU('00000000-00000000-00000000-00000000');
-
-
-   
+    RNMovableInk.setMIU('00000000-00000000-00000000-00000000');   
     // Get the deep link used to open the app
     const getInitialURL = async () => {
       const universalLink = await Linking.getInitialURL();

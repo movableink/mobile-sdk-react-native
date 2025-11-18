@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@braze/react-native-sdk": "^17.0.1",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@ua/react-native-airship": "^25.3.1",
     "react": "18.2.0",
     "react-native": "0.73.5",
+    "react-native-moengage": "^12.3.0",
     "react-native-svg": "^15.1.0",
     "react-native-svg-transformer": "^1.3.0"
   },
@@ -29,5 +32,9 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@4.5.1"
+  "packageManager": "yarn@4.5.1",
+  "moengage": {
+    "includeAndroidXRequiredLibraries": true,
+    "richNotification": true
+  }
 }

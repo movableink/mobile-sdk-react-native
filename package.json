@@ -158,5 +158,9 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.4",
+    "@react-native-async-storage/async-storage": "^2.2.0"
   }
 }
