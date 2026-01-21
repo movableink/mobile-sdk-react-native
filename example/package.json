@@ -9,7 +9,7 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "@braze/react-native-sdk": "^17.0.1",
+    "@braze/react-native-sdk": "^18.0.0",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@ua/react-native-airship": "^25.3.1",
     "react": "18.2.0",
