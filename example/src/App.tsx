@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Linking, Button } from 'react-native';
 import RNMovableInk, { Currency } from '@movable/react-native-sdk';
+import { Notifications, type Registered } from 'react-native-notifications';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
@@ -12,6 +13,34 @@ export default function App() {
     // Make sure to call RNMovableInk.start when your app starts
     RNMovableInk.start();
     RNMovableInk.setMIU('00000000-00000000-00000000-00000000');
+
+    // Register for remote notifications
+    Notifications.registerRemoteNotifications();
+
+    // Handle device token updates
+    const registerForNotificationsSubscription = Notifications.events().registerRemoteNotificationsRegistered((event: Registered) => {
+      console.log(event.deviceToken);
+    });
+
+    // Handle notifications received in foreground
+    const foregroundSubscription = Notifications.events().registerNotificationReceivedForeground(
+      (notification, completion) => {
+        console.log(`Notification received in foreground: ${notification.title} : ${notification.body}`);
+        completion({ alert: false, sound: false, badge: false });
+      }
+    );
+
+    // Handle notification taps
+    const openedSubscription = Notifications.events().registerNotificationOpened(
+      (notification, completion) => {
+        console.log('Notification opened:');
+        console.log(JSON.stringify(notification.payload));
+
+        RNMovableInk.handlePushNotificationOpenedWithContent(notification.payload);
+
+        completion();
+      }
+    );
 
     // Get the deep link used to open the app
     const getInitialURL = async () => {
@@ -42,6 +71,9 @@ export default function App() {
 
     return () => {
       urlListener.remove();
+      registerForNotificationsSubscription.remove();
+      foregroundSubscription?.remove();
+      openedSubscription?.remove();
     };
   }, []);
 

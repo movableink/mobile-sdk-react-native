@@ -25,6 +25,7 @@ RCT_EXTERN_METHOD(showInAppMessage:(NSString *)link withCallback:(RCTResponseSen
 RCT_EXTERN_METHOD(setAppInstallEventEnabled:(BOOL)enabled)
 RCT_EXTERN_METHOD(setValidPasteboardValues:(NSArray *)values)
 
+RCT_EXTERN_METHOD(handlePushNotificationOpenedWithContent:(NSDictionary *)content)
 
 + (BOOL)requiresMainQueueSetup {
   return TRUE;

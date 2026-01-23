@@ -242,6 +242,7 @@ export interface MovableInkInterface {
   checkPasteboardOnInstall(): Promise<string | null>;
   showInAppMessage(url: string, callback: (buttonID: string) => void): void;
   setAppInstallEventEnabled(enabled: boolean): void;
+  handlePushNotificationOpenedWithContent(content: Record<string, unknown>): void;
 }
 
 export default RNMovableInk as MovableInkInterface;
