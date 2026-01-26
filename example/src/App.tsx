@@ -18,29 +18,38 @@ export default function App() {
     Notifications.registerRemoteNotifications();
 
     // Handle device token updates
-    const registerForNotificationsSubscription = Notifications.events().registerRemoteNotificationsRegistered((event: Registered) => {
-      console.log(event.deviceToken);
-    });
+    const registerForNotificationsSubscription =
+      Notifications.events().registerRemoteNotificationsRegistered(
+        (event: Registered) => {
+          console.log(event.deviceToken);
+        }
+      );
 
     // Handle notifications received in foreground
-    const foregroundSubscription = Notifications.events().registerNotificationReceivedForeground(
-      (notification, completion) => {
-        console.log(`Notification received in foreground: ${notification.title} : ${notification.body}`);
-        completion({ alert: false, sound: false, badge: false });
-      }
-    );
+    const foregroundSubscription =
+      Notifications.events().registerNotificationReceivedForeground(
+        (notification, completion) => {
+          console.log(
+            `Notification received in foreground: ${notification.title} : ${notification.body}`
+          );
+          completion({ alert: false, sound: false, badge: false });
+        }
+      );
 
     // Handle notification taps
-    const openedSubscription = Notifications.events().registerNotificationOpened(
-      (notification, completion) => {
-        console.log('Notification opened:');
-        console.log(JSON.stringify(notification.payload));
+    const openedSubscription =
+      Notifications.events().registerNotificationOpened(
+        (notification, completion) => {
+          console.log('Notification opened:');
+          console.log(JSON.stringify(notification.payload));
 
-        RNMovableInk.handlePushNotificationOpenedWithContent(notification.payload);
+          RNMovableInk.handlePushNotificationOpenedWithContent(
+            notification.payload
+          );
 
-        completion();
-      }
-    );
+          completion();
+        }
+      );
 
     // Get the deep link used to open the app
     const getInitialURL = async () => {
@@ -141,7 +150,9 @@ export default function App() {
       <Button
         title="Test Resolve URL"
         onPress={async (_event) => {
-          resolveURL('https://mi-mobile-sandbox.mimobile.xyz/p/cpm/a9a81cd32d8c68bc/c?url=https%3A%2F%2Fmi-mobile-sandbox.mimobile.xyz%2Fp%2Frpm%2Fc2caa7d789cb290d%2Furl&url_sig=50fU6twNJuB6EO');
+          resolveURL(
+            'https://mi-mobile-sandbox.mimobile.xyz/p/cpm/a9a81cd32d8c68bc/c?url=https%3A%2F%2Fmi-mobile-sandbox.mimobile.xyz%2Fp%2Frpm%2Fc2caa7d789cb290d%2Furl&url_sig=50fU6twNJuB6EO'
+          );
         }}
       />
 
