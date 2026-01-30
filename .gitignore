@@ -70,3 +70,7 @@ android/keystores/debug.keystore
 lib/
 .yarn/install-state.gz
 example/.yarn/install-state.gz
+
+google-services.json
+
+

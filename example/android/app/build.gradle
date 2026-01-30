@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: "com.google.gms.google-services"
 
 // import com.android.build.OutputFile
 
@@ -53,6 +54,14 @@ react {
     // hermesFlags = ["-O", "-output-source-map"]
 }
 
+repositories {
+    google()
+    mavenCentral()
+    maven {
+        url 'https://central.sonatype.com/repository/maven-snapshots/'
+    }
+}
+
 /**
  * Set this to true to create four separate APKs instead of one,
  * one for each native architecture. This is useful if you don't
@@ -94,7 +103,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.movableink.app"
+    namespace "com.movableink"
     defaultConfig {
         applicationId "com.movableink.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -147,6 +156,17 @@ android {
 
     //     }
     // }
+
+    kotlinOptions {
+        jvmTarget = "17"
+        freeCompilerArgs += ["-Xskip-metadata-version-check"]
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/versions/9/OSGI-INF/MANIFEST.MF']
+        }
+    }
 }
 
 dependencies {
@@ -154,6 +174,11 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+    
+    // Firebase for push notifications
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation project(':react-native-notifications')
 
     // debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     // debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

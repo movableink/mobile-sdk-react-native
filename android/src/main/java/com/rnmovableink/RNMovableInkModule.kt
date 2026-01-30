@@ -85,35 +85,41 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
     }
   }
 
-@ReactMethod
-fun showInAppMessage(url: String, callback: Callback) {
-    val activity = currentActivity
-    if (activity is androidx.lifecycle.LifecycleOwner) {
-        activity.lifecycleScope.launch {
-            try {
-                MIClient.showInAppBrowser(
-                    activity,
-                    url,
-                    listener = object : MovableInAppClient.OnUrlLoadingListener {
-                        override fun onButtonClicked(value: String) {
-                            activity.runOnUiThread {
-                                callback.invoke(value)
-                            }
-                        }
-                    }
-                )
-            } catch (e: Exception) {
-                activity.runOnUiThread {
-                    callback.invoke("Error: ${e.message}")
-                }
-            }
-        }
-    }
-}
+  @ReactMethod
+  fun showInAppMessage(url: String, callback: Callback) {
+      val activity = currentActivity
+      if (activity is androidx.lifecycle.LifecycleOwner) {
+          activity.lifecycleScope.launch {
+              try {
+                  MIClient.showInAppBrowser(
+                      activity,
+                      url,
+                      listener = object : MovableInAppClient.OnUrlLoadingListener {
+                          override fun onButtonClicked(value: String) {
+                              activity.runOnUiThread {
+                                  callback.invoke(value)
+                              }
+                          }
+                      }
+                  )
+              } catch (e: Exception) {
+                  activity.runOnUiThread {
+                      callback.invoke("Error: ${e.message}")
+                  }
+              }
+          }
+      }
+  }
 
   @ReactMethod
   fun setValidPasteboardValues(values: ReadableArray) {
     MIClient.validPasteboardValues(values.toStringList())
+  }
+
+  @ReactMethod
+  fun handlePushNotificationOpenedWithContent(properties: ReadableMap) {
+    val map: Map<String, String> = properties.toHashMap().mapValues { it.value.toString() }
+    MIClient.handlePushNotificationOpened(map)
   }
 
   fun ReadableArray.toStringList(): List<String> {

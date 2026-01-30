@@ -5,6 +5,7 @@ import { Notifications, type Registered } from 'react-native-notifications';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
+  const [token, setToken] = React.useState<string | undefined>();
 
   React.useEffect(() => {
     // If using Deferred Deep Linking, make sure to enable the app install event
@@ -22,17 +23,15 @@ export default function App() {
       Notifications.events().registerRemoteNotificationsRegistered(
         (event: Registered) => {
           console.log(event.deviceToken);
+          setToken(event.deviceToken);
         }
       );
 
     // Handle notifications received in foreground
     const foregroundSubscription =
       Notifications.events().registerNotificationReceivedForeground(
-        (notification, completion) => {
-          console.log(
-            `Notification received in foreground: ${notification.title} : ${notification.body}`
-          );
-          completion({ alert: false, sound: false, badge: false });
+        (_notification, completion) => {
+          completion({ alert: true, sound: true, badge: false });
         }
       );
 
@@ -50,6 +49,20 @@ export default function App() {
           completion();
         }
       );
+
+    Notifications.getInitialNotification()
+      .then((notification) => {
+        if (notification) {
+          console.log('App opened from notification:');
+          console.log(`${JSON.stringify(notification, null, 2)}`);
+
+          // Handle the notification with MovableInk
+          RNMovableInk.handlePushNotificationOpenedWithContent(
+            notification.payload
+          );
+        }
+      })
+      .catch((err) => console.error('getInitialNotification() failed', err));
 
     // Get the deep link used to open the app
     const getInitialURL = async () => {
@@ -97,6 +110,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Resolved Link: {link}</Text>
+      <Text>
+        Device Token: {'\n'}
+        {token}
+      </Text>
 
       <Button
         title="Test Product Searched"
@@ -176,6 +193,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 16,
+    padding: 20,
   },
   box: {
     width: 60,
