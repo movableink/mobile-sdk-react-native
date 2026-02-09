@@ -1,0 +1,6 @@
+module Pods_MovableInkExample {
+  umbrella header "Pods-MovableInkExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

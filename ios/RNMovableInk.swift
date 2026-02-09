@@ -156,9 +156,9 @@ public class RNMovableInk: NSObject {
 
   @objc(handlePushNotificationOpenedWithContent:)
   public func handlePushNotificationOpenedWithContent(content: [String: Any]) {
-    Task { @MainActor in
-      guard let content = content as? [String: Sendable] else { return }
-      MIClient.handlePushNotificationOpened(content)
-    }
+    // Task { @MainActor in
+    //   guard let content = content as? [String: Sendable] else { return }
+    //   MIClient.handlePushNotificationOpened(content)
+    // }
   }
 }

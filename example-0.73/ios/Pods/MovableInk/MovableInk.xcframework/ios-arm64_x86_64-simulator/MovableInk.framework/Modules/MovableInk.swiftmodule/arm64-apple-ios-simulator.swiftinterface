@@ -1,0 +1,562 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.1 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name MovableInk
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
+import Combine
+import CoreData
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
+import os
+public enum MetaValueType : Swift.Sendable {
+  case string(Swift.String)
+  case boolean(Swift.Bool)
+}
+public struct MetaValueDictionary : Swift.Collection, Swift.ExpressibleByDictionaryLiteral, Swift.Sendable {
+  public typealias Key = Swift.String
+  public typealias Value = Swift.Sendable
+  public typealias DictionaryType = [MovableInk.MetaValueDictionary.Key : any Swift.Sendable]
+  public typealias Index = MovableInk.MetaValueDictionary.DictionaryType.Index
+  public typealias Indices = MovableInk.MetaValueDictionary.DictionaryType.Indices
+  public typealias Iterator = MovableInk.MetaValueDictionary.DictionaryType.Iterator
+  public typealias SubSequence = MovableInk.MetaValueDictionary.DictionaryType.SubSequence
+  public var startIndex: MovableInk.MetaValueDictionary.Index {
+    get
+  }
+  public var endIndex: MovableInk.MetaValueDictionary.DictionaryType.Index {
+    get
+  }
+  public subscript(position: MovableInk.MetaValueDictionary.Index) -> MovableInk.MetaValueDictionary.Iterator.Element {
+    get
+  }
+  public subscript(bounds: Swift.Range<MovableInk.MetaValueDictionary.Index>) -> MovableInk.MetaValueDictionary.SubSequence {
+    get
+  }
+  public var indices: MovableInk.MetaValueDictionary.Indices {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public subscript(key: MovableInk.MetaValueDictionary.Key) -> (any Swift.Sendable)? {
+    get
+    set
+  }
+  #endif
+  public func index(after index: MovableInk.MetaValueDictionary.Index) -> MovableInk.MetaValueDictionary.Index
+  public func makeIterator() -> Swift.DictionaryIterator<MovableInk.MetaValueDictionary.Key, any Swift.Sendable>
+  public init(dictionaryLiteral elements: (MovableInk.MetaValueDictionary.Key, any Swift.Sendable)...)
+  public typealias Element = MovableInk.MetaValueDictionary.Iterator.Element
+}
+@objc @objcMembers final public class ProductSearchedProperties : ObjectiveC.NSObject, Swift.Encodable, Swift.Sendable {
+  @objc final public let query: Swift.String
+  @objc final public let url: Foundation.URL?
+  final public let meta: MovableInk.MetaValueDictionary?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(query: Swift.String, url: Foundation.URL? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithQuery:urlString:meta:) public init(query: Swift.String, urlString: Swift.String?, meta: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init?(dict: [Swift.String : any Swift.Sendable])
+  #endif
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum DeeplinkResolutionError : Swift.Error {
+  case failure(url: Swift.String, message: Swift.String)
+  case unknown
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @objcMembers public class MIClient : ObjectiveC.NSObject {
+  @_Concurrency.MainActor public static let events: MovableInk.MIClient.Events
+  @_Concurrency.MainActor public static let iam: MovableInk.MIClient.IAM
+  @_Concurrency.MainActor public static var enabledLogTypes: MovableInk.MILogType {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor public static var appInstallEventEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor public static var hasAnonymousEvents: Swift.Bool {
+    @objc get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @_Concurrency.MainActor public static var storedDeeplink: Swift.String? {
+    @objc get
+  }
+  #endif
+  @objc @_Concurrency.MainActor public static var validPasteboardValues: [Swift.String]
+  nonisolated(unsafe) public static let storedDeeplinkSubject: Combine.CurrentValueSubject<Swift.String?, Swift.Never>
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public static func start(apiKey: Swift.String? = nil, region: MovableInk.BehaviorEventRegion = .us, deeplinkDomains: [Swift.String] = [], launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil, shouldRegisterForBehaviorEvents: Swift.Bool = true, deeplinkHandler: ((Swift.Result<Swift.String, MovableInk.DeeplinkResolutionError>) -> Swift.Void)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @objc public static func start(apiKey: Swift.String? = nil, region: MovableInk.BehaviorEventRegion = .us, deeplinkDomains: [Swift.String] = [], launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil, result: ((Swift.String?, Foundation.NSError?) -> Swift.Void)? = nil)
+  #endif
+  @objc deinit
+}
+extension MovableInk.MIClient {
+  @objc @_Concurrency.MainActor public static func checkPasteboardOnInstall()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @_Concurrency.MainActor public static func checkPasteboardOnInstall() async -> Foundation.URL?
+  #endif
+  @objc @available(iOS 16, *)
+  @_Concurrency.MainActor public static func paste(itemProviders: [Foundation.NSItemProvider])
+  @objc @available(iOS 16, *)
+  @_Concurrency.MainActor public static func paste(itemProviders: [Foundation.NSItemProvider]) async -> Swift.Bool
+  @objc @_Concurrency.MainActor public static func addHandleablePaths(_ options: [Swift.String : [Swift.String]])
+  @objc @_Concurrency.MainActor public static func removeHandleablePaths(for domain: Swift.String)
+  @objc @_Concurrency.MainActor public static func clearHandleablePaths()
+  @objc @_Concurrency.MainActor public static func registerDeeplinkDomains(_ domains: [Swift.String])
+  @objc @_Concurrency.MainActor public static func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc nonisolated public static func canHandleURL(_ url: Foundation.URL) async -> Swift.Bool
+  @objc @discardableResult
+  @_Concurrency.MainActor public static func handleUniversalLink(with options: UIKit.UIScene.ConnectionOptions) -> Swift.Bool
+  @objc @discardableResult
+  @_Concurrency.MainActor public static func handleUniversalLink(from userActivity: Foundation.NSUserActivity) -> Swift.Bool
+  @objc @discardableResult
+  @_Concurrency.MainActor public static func handleUniversalLink(url: Foundation.URL) -> Swift.Bool
+  @objc @_Concurrency.MainActor public static func resolve(url: Foundation.URL) async throws -> Foundation.URL
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public static func resolve(url: Foundation.URL, completion: @escaping (Swift.Result<Foundation.URL, MovableInk.DeeplinkResolutionError>) -> Swift.Void)
+  #endif
+}
+extension MovableInk.MIClient {
+  @objc @_Concurrency.MainActor public static func showInAppMessage(with link: Any, showCloseButton: Swift.Bool = false, handler: @escaping (Swift.String) -> Swift.Void)
+}
+extension MovableInk.MIClient {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc @_Concurrency.MainActor public static func miU() -> Swift.String?
+  #endif
+  @_Concurrency.MainActor @objc public static func setMIU(_ value: Swift.String)
+}
+@objc @objcMembers final public class ProductCategory : ObjectiveC.NSObject, Swift.Encodable, Swift.Sendable {
+  @objc final public let id: Swift.String
+  @objc final public let title: Swift.String?
+  @objc final public let url: Foundation.URL?
+  final public let meta: MovableInk.MetaValueDictionary?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, url: Foundation.URL? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithId:title:urlString:meta:) public init(id: Swift.String, title: Swift.String? = nil, urlString: Swift.String?, meta: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init?(dict: [Swift.String : any Swift.Sendable])
+  #endif
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+@objc public enum Currency : Swift.Int, Swift.Sendable, Swift.Codable {
+  case AED
+  case AFN
+  case ALL
+  case AMD
+  case ANG
+  case AOA
+  case ARS
+  case AUD
+  case AWG
+  case AZN
+  case BAM
+  case BBD
+  case BDT
+  case BGN
+  case BHD
+  case BIF
+  case BMD
+  case BND
+  case BOB
+  case BOV
+  case BRL
+  case BSD
+  case BTN
+  case BWP
+  case BYN
+  case BYR
+  case BZD
+  case CAD
+  case CDF
+  case CHF
+  case CLF
+  case CLP
+  case CNY
+  case COP
+  case COU
+  case CRC
+  case CUC
+  case CUP
+  case CVE
+  case CZK
+  case DJF
+  case DKK
+  case DOP
+  case DZD
+  case EEK
+  case EGP
+  case ERN
+  case ETB
+  case EUR
+  case FJD
+  case FKP
+  case GBP
+  case GEL
+  case GHS
+  case GIP
+  case GMD
+  case GNF
+  case GTQ
+  case GYD
+  case HKD
+  case HNL
+  case HRK
+  case HTG
+  case HUF
+  case IDR
+  case ILS
+  case INR
+  case IQD
+  case IRR
+  case ISK
+  case JMD
+  case JOD
+  case JPY
+  case KES
+  case KGS
+  case KHR
+  case KMF
+  case KPW
+  case KRW
+  case KWD
+  case KYD
+  case KZT
+  case LAK
+  case LBP
+  case LKR
+  case LRD
+  case LSL
+  case LTL
+  case LVL
+  case LYD
+  case MAD
+  case MDL
+  case MGA
+  case MKD
+  case MMK
+  case MNT
+  case MOP
+  case MRO
+  case MRU
+  case MUR
+  case MVR
+  case MWK
+  case MXN
+  case MXV
+  case MYR
+  case MZN
+  case NAD
+  case NGN
+  case NIO
+  case NOK
+  case NPR
+  case NZD
+  case OMR
+  case PAB
+  case PEN
+  case PGK
+  case PHP
+  case PKR
+  case PLN
+  case PYG
+  case QAR
+  case RON
+  case RSD
+  case RUB
+  case RWF
+  case SAR
+  case SBD
+  case SCR
+  case SDG
+  case SEK
+  case SGD
+  case SHP
+  case SLE
+  case SLL
+  case SOS
+  case SRD
+  case SSP
+  case STD
+  case STN
+  case SVC
+  case SYP
+  case SZL
+  case THB
+  case TJS
+  case TMT
+  case TND
+  case TOP
+  case TRY
+  case TTD
+  case TWD
+  case TZS
+  case UAH
+  case UGX
+  case USD
+  case USN
+  case UYI
+  case UYU
+  case UZS
+  case VEF
+  case VES
+  case VND
+  case VUV
+  case WST
+  case XAF
+  case XAG
+  case XAU
+  case XBA
+  case XBB
+  case XBC
+  case XBD
+  case XCD
+  case XDR
+  case XFU
+  case XOF
+  case XPD
+  case XPF
+  case XPT
+  case XTS
+  case XSU
+  case XUA
+  case YER
+  case ZAR
+  case ZMW
+  case ZWL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct MILogType : Swift.OptionSet, Swift.Sendable {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let general: MovableInk.MILogType
+  public static let deeplink: MovableInk.MILogType
+  public static let behaviorEvent: MovableInk.MILogType
+  public static let behaviorEventPayload: MovableInk.MILogType
+  public static let none: MovableInk.MILogType
+  public static let all: MovableInk.MILogType
+  public typealias ArrayLiteralElement = MovableInk.MILogType
+  public typealias Element = MovableInk.MILogType
+  public typealias RawValue = Swift.Int
+}
+@objc public enum BehaviorEventRegion : Swift.Int, Swift.Sendable {
+  case us
+  case eu
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension MovableInk.MIClient {
+  @_Concurrency.MainActor public struct IAM {
+    @_Concurrency.MainActor public func canView(id: Swift.String) -> Swift.Bool
+    @_Concurrency.MainActor public func canView(link: Swift.String) -> Swift.Bool
+    @_Concurrency.MainActor public func hasSeen(id: Swift.String) -> Swift.Bool
+    @_Concurrency.MainActor public func hasSeen(link: Swift.String) -> Swift.Bool
+    @_Concurrency.MainActor public func view(id: Swift.String)
+    @_Concurrency.MainActor public func view(id: Swift.String, link: Swift.String)
+    @_Concurrency.MainActor public func show(with link: Any, showCloseButton: Swift.Bool = false, handler: @escaping (Swift.String) -> Swift.Void)
+  }
+}
+@objc final public class ProductProperties : ObjectiveC.NSObject, Swift.Encodable, Swift.Sendable {
+  final public let id: Swift.String
+  final public let title: Swift.String?
+  final public let price: Swift.String?
+  final public let currency: MovableInk.Currency
+  final public let url: Foundation.URL?
+  final public let categories: [MovableInk.ProductCategory]?
+  final public let meta: MovableInk.MetaValueDictionary?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithId:title:price:currency:url:categories:meta:) public init(id: Swift.String, title: Swift.String? = nil, price: Foundation.NSNumber? = nil, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.String? = nil, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Float, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Double, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Int, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Foundation.Decimal, currency: MovableInk.Currency = .USD, url: Foundation.URL? = nil, categories: [MovableInk.ProductCategory]? = nil, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(dict: [Swift.String : any Swift.Sendable])
+  #endif
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_Concurrency.MainActor extension MovableInk.MIClient {
+  @_Concurrency.MainActor public struct Events {
+  }
+  @objc @_Concurrency.MainActor public static func productViewed(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func productViewed(properties: MovableInk.ProductProperties)
+  @objc @_Concurrency.MainActor public static func productAdded(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func productAdded(properties: MovableInk.ProductProperties)
+  @objc @_Concurrency.MainActor public static func productRemoved(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func productRemoved(properties: MovableInk.ProductProperties)
+  @objc @_Concurrency.MainActor public static func orderCompleted(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func orderCompleted(properties: MovableInk.OrderCompletedProperties)
+  @objc @_Concurrency.MainActor public static func categoryViewed(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func categoryViewed(category: MovableInk.ProductCategory)
+  @objc @_Concurrency.MainActor public static func productSearched(_ dict: [Swift.String : any Swift.Sendable])
+  @objc @_Concurrency.MainActor public static func productSearched(properties: MovableInk.ProductSearchedProperties)
+  @objc @_Concurrency.MainActor public static func logEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable])
+}
+@objc final public class OrderCompletedProperties : ObjectiveC.NSObject, Swift.Encodable, Swift.Sendable {
+  final public let id: Swift.String?
+  final public let revenue: Swift.String?
+  final public let currency: MovableInk.Currency
+  final public let products: [MovableInk.OrderCompletedProduct]
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithId:revenue:currency:products:) public init(id: Swift.String? = nil, revenue: Foundation.NSNumber? = nil, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, revenue: Swift.String? = nil, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, revenue: Swift.Float, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, revenue: Swift.Double, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, revenue: Swift.Int, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, revenue: Foundation.Decimal, currency: MovableInk.Currency = .USD, products: [MovableInk.OrderCompletedProduct])
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(dict: [Swift.String : Any])
+  #endif
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers @objc final public class OrderCompletedProduct : ObjectiveC.NSObject, Swift.Encodable, Swift.Sendable {
+  final public let id: Swift.String
+  final public let title: Swift.String?
+  final public let url: Foundation.URL?
+  final public let price: Swift.String?
+  final public let quantity: Swift.Int?
+  final public let currency: MovableInk.Currency?
+  final public let meta: MovableInk.MetaValueDictionary?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithId:title:price:url:quantity:meta:) public init(id: Swift.String, title: Swift.String? = nil, price: Foundation.NSNumber?, url: Foundation.URL? = nil, quantity: Foundation.NSNumber?, meta: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Foundation.Decimal, url: Foundation.URL? = nil, quantity: Swift.Int?, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Float, url: Foundation.URL? = nil, quantity: Swift.Int?, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Double, url: Foundation.URL? = nil, quantity: Swift.Int?, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.Int, url: Foundation.URL? = nil, quantity: Swift.Int?, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, title: Swift.String? = nil, price: Swift.String? = nil, url: Foundation.URL? = nil, quantity: Swift.Int?, meta: MovableInk.MetaValueDictionary? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(dict: [Swift.String : Any], currency: MovableInk.Currency = .USD)
+  #endif
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum SDKEventType : Swift.String, Swift.CaseIterable, Swift.Sendable {
+  case sdkInitialized
+  case deepLinkHandled
+  case pushNotificationClicked
+  case pushNotificationCausedAppOpen
+  case iamDisplayed
+  case iamClicked
+  case iamEligibilityCheck
+  case iamViewed
+  case iamLoadStarted
+  case iamLoadCompleted
+  case iamDismissed
+  case apiError
+  case networkError
+  case authenticationError
+  case dataStorageError
+  case custom
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [MovableInk.SDKEventType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [MovableInk.SDKEventType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SDKEventPriority : Swift.Int, Swift.Sendable {
+  case low
+  case normal
+  case high
+  case critical
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct SDKEventMetadata : Swift.Sendable {
+}
+public struct SDKEvent : Swift.Sendable {
+}
+public struct ErrorInfo : Swift.Sendable {
+}
+public typealias DeeplinkMIUCoreDataPropertiesSet = Foundation.NSSet
+public typealias SDKEventLogCoreDataPropertiesSet = Foundation.NSSet
+public typealias ViewedMessageCoreDataPropertiesSet = Foundation.NSSet
+public typealias MovableInkStorageFoundationFrameworkSet = Foundation.NSSet
+public typealias MovableInkStorageCoreDataFrameworkManagedObject = CoreData.NSManagedObject
+extension MovableInk.MIClient : Swift.Sendable {}
+extension MovableInk.Currency : Swift.Equatable {}
+extension MovableInk.Currency : Swift.Hashable {}
+extension MovableInk.Currency : Swift.RawRepresentable {}
+extension MovableInk.BehaviorEventRegion : Swift.Equatable {}
+extension MovableInk.BehaviorEventRegion : Swift.Hashable {}
+extension MovableInk.BehaviorEventRegion : Swift.RawRepresentable {}
+extension MovableInk.MIClient.IAM : Swift.Sendable {}
+extension MovableInk.MIClient.Events : Swift.Sendable {}
+extension MovableInk.SDKEventType : Swift.Equatable {}
+extension MovableInk.SDKEventType : Swift.Hashable {}
+extension MovableInk.SDKEventType : Swift.RawRepresentable {}
+extension MovableInk.SDKEventPriority : Swift.Equatable {}
+extension MovableInk.SDKEventPriority : Swift.Hashable {}
+extension MovableInk.SDKEventPriority : Swift.RawRepresentable {}

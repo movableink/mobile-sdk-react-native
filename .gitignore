@@ -2,9 +2,6 @@
 #
 .DS_Store
 
-# XDE
-.expo/
-
 # VSCode
 .vscode/
 jsconfig.json
@@ -70,6 +67,9 @@ android/keystores/debug.keystore
 lib/
 .yarn/install-state.gz
 example/.yarn/install-state.gz
+example-0.73/.yarn/install-state.gz
+example-0.79/.yarn/install-state.gz
+example-0.83/.yarn/install-state.gz
 
 google-services.json
 

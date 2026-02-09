@@ -1,0 +1,18 @@
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf
+/Users/cheinsen/.asdf/installs/ruby/3.4.7/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-tcicxb sitelibdir\=./.gem.20251020-53658-tcicxb clean
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-tcicxb sitelibdir\=./.gem.20251020-53658-tcicxb
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-tcicxb sitelibdir\=./.gem.20251020-53658-tcicxb install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20251020-53658-tcicxb
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-tcicxb sitelibdir\=./.gem.20251020-53658-tcicxb clean

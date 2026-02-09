@@ -1,0 +1,16 @@
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/json-2.7.1/ext/json
+/Users/cheinsen/.asdf/installs/ruby/3.4.7/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/json-2.7.1/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-mot4kg sitelibdir\=./.gem.20251020-53658-mot4kg clean
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/json-2.7.1/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-mot4kg sitelibdir\=./.gem.20251020-53658-mot4kg
+make: Nothing to be done for `all'.
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/json-2.7.1/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-mot4kg sitelibdir\=./.gem.20251020-53658-mot4kg install
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.4.0/gems/json-2.7.1/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20251020-53658-mot4kg sitelibdir\=./.gem.20251020-53658-mot4kg clean

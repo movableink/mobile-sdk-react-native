@@ -1,0 +1,20 @@
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+/Users/cheinsen/.asdf/installs/ruby/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240308-23725-3a8v2p sitelibdir\=./.gem.20240308-23725-3a8v2p clean
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240308-23725-3a8v2p sitelibdir\=./.gem.20240308-23725-3a8v2p
+compiling nkf.c
+linking shared-object nkf.bundle
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240308-23725-3a8v2p sitelibdir\=./.gem.20240308-23725-3a8v2p install
+/opt/homebrew/bin/ginstall -c -m 0755 nkf.bundle ./.gem.20240308-23725-3a8v2p
+
+current directory: /Users/cheinsen/Developer/mobile-sdk-react-native/example/vendor/bundle/ruby/3.2.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20240308-23725-3a8v2p sitelibdir\=./.gem.20240308-23725-3a8v2p clean

@@ -1,7 +1,4 @@
 buildscript {
-  // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RNMovableInk_kotlinVersion"]
-
   repositories {
     google()
     mavenCentral()
@@ -11,9 +8,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.2"
-    // noinspection DifferentKotlinGradleVersion
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    // AGP and Kotlin versions provided by the consuming app
   }
 }
 
@@ -40,7 +35,6 @@ def supportsNamespace() {
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-apply plugin: 'org.jetbrains.kotlin.android'
 
 if (isNewArchitectureEnabled()) {
   apply plugin: "com.facebook.react"
@@ -70,7 +64,7 @@ android {
     }
   }
 
-  lintOptions {
+  lint {
     disable "GradleCompatible"
   }
 
@@ -84,6 +78,13 @@ android {
     freeCompilerArgs += ["-Xskip-metadata-version-check"]
   }
 
+}
+
+// Configure all Kotlin compile tasks to skip metadata version check
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+  kotlinOptions {
+    freeCompilerArgs += ["-Xskip-metadata-version-check"]
+  }
 }
 
 repositories {
@@ -104,7 +105,6 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation "com.movableink.sdk:inked:2.3.0-SNAPSHOT"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
-
 }
 
 if (isNewArchitectureEnabled()) {

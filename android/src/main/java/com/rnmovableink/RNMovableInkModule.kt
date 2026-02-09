@@ -8,6 +8,7 @@ import com.movableink.inked.inAppMessage.MovableInAppClient
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import android.util.Log
 
 class RNMovableInkModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
@@ -87,28 +88,34 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun showInAppMessage(url: String, callback: Callback) {
-      val activity = currentActivity
-      if (activity is androidx.lifecycle.LifecycleOwner) {
-          activity.lifecycleScope.launch {
-              try {
-                  MIClient.showInAppBrowser(
-                      activity,
-                      url,
-                      listener = object : MovableInAppClient.OnUrlLoadingListener {
-                          override fun onButtonClicked(value: String) {
-                              activity.runOnUiThread {
-                                  callback.invoke(value)
-                              }
-                          }
-                      }
-                  )
-              } catch (e: Exception) {
-                  activity.runOnUiThread {
-                      callback.invoke("Error: ${e.message}")
-                  }
-              }
-          }
-      }
+    val activity = reactApplicationContext.currentActivity
+    if (activity == null) {
+        Log.d("MISDK", "No current activity")
+        return
+    }
+    if (activity !is androidx.lifecycle.LifecycleOwner) {
+        Log.d("MISDK", "Activity is not a LifecycleOwner")
+        return
+    }
+    activity.lifecycleScope.launch {
+        try {
+            MIClient.showInAppBrowser(
+                activity,
+                url,
+                listener = object : MovableInAppClient.OnUrlLoadingListener {
+                    override fun onButtonClicked(value: String) {
+                        (activity as? android.app.Activity)?.runOnUiThread {
+                            callback.invoke(value)
+                        }
+                    }
+                }
+            )
+        } catch (e: Exception) {
+            (activity as? android.app.Activity)?.runOnUiThread {
+                Log.e("MISDK", "Error showing in-app message", e)
+            }
+        }
+    }
   }
 
   @ReactMethod
@@ -118,14 +125,14 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun handlePushNotificationOpenedWithContent(properties: ReadableMap) {
-    val map: Map<String, String> = properties.toHashMap().mapValues { it.value.toString() }
-    MIClient.handlePushNotificationOpened(map)
+    // val map: Map<String, String> = properties.toHashMap().mapValues { it.value.toString() }
+    // MIClient.handlePushNotificationOpened(map)
   }
 
   fun ReadableArray.toStringList(): List<String> {
     val stringList = mutableListOf<String>()
     for (i in 0 until size()) {
-      stringList.add(getString(i))
+      getString(i)?.let { stringList.add(it) }
     }
     return stringList
   }
