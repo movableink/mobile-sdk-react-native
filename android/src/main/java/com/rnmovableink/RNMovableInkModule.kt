@@ -91,10 +91,12 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
     val activity = reactApplicationContext.currentActivity
     if (activity == null) {
         Log.d("MISDK", "No current activity")
+        callback.invoke("Error: No current activity")
         return
     }
     if (activity !is androidx.lifecycle.LifecycleOwner) {
         Log.d("MISDK", "Activity is not a LifecycleOwner")
+        callback.invoke("Error: Activity is not a LifecycleOwner")
         return
     }
     activity.lifecycleScope.launch {
@@ -113,6 +115,7 @@ class RNMovableInkModule(reactContext: ReactApplicationContext) :
         } catch (e: Exception) {
             (activity as? android.app.Activity)?.runOnUiThread {
                 Log.e("MISDK", "Error showing in-app message", e)
+                callback.invoke("Error: ${e.message}")
             }
         }
     }
