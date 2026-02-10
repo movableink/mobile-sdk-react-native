@@ -148,7 +148,10 @@
   "eslintIgnore": [
     "node_modules/",
     "lib/",
-    "example*/",
+    "example/",
+    "example-0.73/",
+    "example-0.79/",
+    "example-0.83/",
     "android/",
     "ios/"
   ],
