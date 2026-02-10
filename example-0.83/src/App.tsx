@@ -7,13 +7,13 @@ import {
   Button,
   useColorScheme,
   ActivityIndicator,
-  Pressable,
   PermissionsAndroid,
   Platform,
+  Pressable,
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-import RNMovableInk, {Currency} from '@movable/react-native-sdk';
-import {Notifications, type Registered} from 'react-native-notifications';
+import RNMovableInk, { Currency } from '@movable/react-native-sdk';
+import { Notifications, type Registered } from 'react-native-notifications';
 
 export default function App() {
   const [link, setLink] = React.useState<string | undefined>();
@@ -60,7 +60,7 @@ export default function App() {
     const foregroundSubscription =
       Notifications.events().registerNotificationReceivedForeground(
         (_notification, completion) => {
-          completion({alert: true, sound: true, badge: false});
+          completion({ alert: true, sound: true, badge: false });
         },
       );
 
@@ -113,7 +113,7 @@ export default function App() {
 
     const urlListener = Linking.addEventListener(
       'url',
-      (event: {url: string}) => {
+      (event: { url: string }) => {
         (async () => {
           await resolveURL(event.url);
         })();
@@ -150,9 +150,11 @@ export default function App() {
           if (token) {
             Clipboard.setString(token);
           }
-        }}>
+        }}
+      >
         <Text
-          style={colorScheme === 'dark' ? styles.textDark : styles.textLight}>
+          style={colorScheme === 'dark' ? styles.textDark : styles.textLight}
+        >
           Device Token: {'\n'}
           {token}
         </Text>
@@ -161,7 +163,7 @@ export default function App() {
       <Button
         title="Test Product Searched"
         onPress={_event => {
-          RNMovableInk.productSearched({query: 'Test Event'});
+          RNMovableInk.productSearched({ query: 'Test Event' });
         }}
       />
 

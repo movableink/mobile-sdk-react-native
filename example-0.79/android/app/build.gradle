@@ -134,6 +134,7 @@ dependencies {
     // Firebase for push notifications
     implementation platform('com.google.firebase:firebase-bom:32.7.0')
     implementation 'com.google.firebase:firebase-messaging'
+    implementation project(':react-native-notifications')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

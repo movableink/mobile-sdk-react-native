@@ -11,6 +11,7 @@
     "pods": "cd ios && bundle install && bundle exec pod install && cd .."
   },
   "dependencies": {
+    "@react-native-clipboard/clipboard": "^1.16.3",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-notifications": "^5.2.2",
