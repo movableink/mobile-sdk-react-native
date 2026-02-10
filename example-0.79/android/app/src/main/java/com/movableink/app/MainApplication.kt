@@ -12,7 +12,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
 import com.movableink.app.BuildConfig
-import com.wix.reactnativenotifications.RNNotificationsPackage;
+import com.wix.reactnativenotifications.RNNotificationsPackage
 
 class MainApplication : Application(), ReactApplication {
 
