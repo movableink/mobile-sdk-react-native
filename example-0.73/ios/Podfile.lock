@@ -887,10 +887,12 @@ PODS:
   - React-Mapbuffer (0.73.5):
     - glog
     - React-debug
-  - react-native-movable-ink (2.1.2):
+  - react-native-movable-ink (2.2.0):
     - glog
-    - MovableInk (= 2.1.0)
+    - MovableInk
     - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - react-native-notifications (5.2.2):
     - React-Core
   - React-nativeconfig (0.73.5)
   - React-NativeModulesApple (0.73.5):
@@ -1096,6 +1098,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - react-native-movable-ink (from `../..`)
+  - react-native-notifications (from `../node_modules/react-native-notifications`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -1184,6 +1187,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   react-native-movable-ink:
     :path: "../.."
+  react-native-notifications:
+    :path: "../node_modules/react-native-notifications"
   React-nativeconfig:
     :path: "../node_modules/react-native/ReactCommon"
   React-NativeModulesApple:
@@ -1239,7 +1244,7 @@ SPEC CHECKSUMS:
   hermes-engine: 1d1835b2cc54c381909d94d1b3c8e0a2f1a94a0e
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   MovableInk: af6cf6bd02c22145b573465da9d9bf1d40fea6de
-  RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
+  RCT-Folly: cd21f1661364f975ae76b3308167ad66b09f53f5
   RCTRequired: 2544c0f1081a5fa12e108bb8cb40e5f4581ccd87
   RCTTypeSafety: 50efabe2b115c11ed03fbf3fd79e2f163ddb5d7c
   React: 84221d5e0ce297bc57c4b6af539a62d812d89f10
@@ -1260,7 +1265,8 @@ SPEC CHECKSUMS:
   React-jsinspector: 32db5e364bcae8fca8cdf8891830636275add0c5
   React-logger: 4136cd22748f4275b04bf82f7b6853ba93b5e0e3
   React-Mapbuffer: ee9b45b26e759a099a3e024df50b25af390ee998
-  react-native-movable-ink: fec2a891bfe97cbfa22018e452ad41b917e1b81d
+  react-native-movable-ink: d95e283634c9ca738f9b89d2bab0eaa46bc3ae7b
+  react-native-notifications: e2d3c022d6077de7e420ba5c01b4bd9464f3941d
   React-nativeconfig: 1166714a4f7ea57a0df5c2cb44fbc70f98d580f9
   React-NativeModulesApple: d4a50e6739e201716bc90178c143d019c8e09c36
   React-perflogger: 0dd9f1725d55f8264b81efadd373fe1d9cca7dc2

@@ -40,9 +40,15 @@ android.iml
 # Cocoapods
 #
 example/ios/Pods
+example-0.73/ios/Pods
+example-0.79/ios/Pods
+example-0.83/ios/Pods
 
 # Ruby
 example/vendor/
+example-0.73/vendor/
+example-0.79/vendor/
+example-0.83/vendor/
 
 # node.js
 #

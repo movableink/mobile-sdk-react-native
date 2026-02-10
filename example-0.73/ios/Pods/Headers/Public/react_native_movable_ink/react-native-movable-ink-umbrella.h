@@ -1,1 +1,0 @@
-../../../Target Support Files/react-native-movable-ink/react-native-movable-ink-umbrella.h
