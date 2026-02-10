@@ -102,6 +102,12 @@
       "<rootDir>/example-0.79/node_modules",
       "<rootDir>/example-0.83/node_modules",
       "<rootDir>/lib/"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/example/",
+      "<rootDir>/example-0.73/",
+      "<rootDir>/example-0.79/",
+      "<rootDir>/example-0.83/"
     ]
   },
   "commitlint": {
