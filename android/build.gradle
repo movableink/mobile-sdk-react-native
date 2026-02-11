@@ -103,7 +103,7 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "com.movableink.sdk:inked:2.3.0-SNAPSHOT"
+  implementation "com.movableink.sdk:inked:2.3.0"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
 }
 
