@@ -75,17 +75,17 @@ android {
 
   kotlinOptions {
     jvmTarget = "17"
-    freeCompilerArgs += ["-Xskip-metadata-version-check"]
+    //freeCompilerArgs += ["-Xskip-metadata-version-check"]
   }
 
 }
 
 // Configure all Kotlin compile tasks to skip metadata version check
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-  kotlinOptions {
-    freeCompilerArgs += ["-Xskip-metadata-version-check"]
-  }
-}
+// tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+//   kotlinOptions {
+//     freeCompilerArgs += ["-Xskip-metadata-version-check"]
+//   }
+// }
 
 repositories {
   mavenCentral()

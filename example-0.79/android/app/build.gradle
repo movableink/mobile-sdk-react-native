@@ -144,8 +144,8 @@ dependencies {
 }
 
 // Configure all Kotlin compile tasks to skip metadata version check
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-    kotlinOptions {
-        freeCompilerArgs += ["-Xskip-metadata-version-check"]
-    }
-}
+// tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+//     kotlinOptions {
+//         freeCompilerArgs += ["-Xskip-metadata-version-check"]
+//     }
+// }
