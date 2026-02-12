@@ -15,7 +15,6 @@
     "cpp",
     "*.podspec",
     "!lib/typescript/example",
-    "!lib/typescript/example-0.73",
     "!lib/typescript/example-0.79",
     "!lib/typescript/example-0.83",
     "!ios/build",
@@ -35,13 +34,11 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
     "release": "release-it",
-    "example73": "yarn --cwd example-0.73",
     "example79": "yarn --cwd example-0.79",
     "example83": "yarn --cwd example-0.83",
-    "bootstrap73": "yarn example73 && yarn install && yarn example73 pods",
     "bootstrap79": "yarn example79 && yarn install && yarn example79 pods",
     "bootstrap83": "yarn example83 && yarn install && yarn example83 pods",
-    "clean": "del-cli android/build example-0.73/android/build example-0.73/android/app/build example-0.73/ios/build example-0.79/android/build example-0.79/android/app/build example-0.79/ios/build example-0.83/android/build example-0.83/android/app/build example-0.83/ios/build"
+    "clean": "del-cli android/build example-0.79/android/build example-0.79/android/app/build example-0.79/ios/build example-0.83/android/build example-0.83/android/app/build example-0.83/ios/build"
   },
   "keywords": [
     "movableink",
@@ -98,14 +95,12 @@
     "preset": "react-native",
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
-      "<rootDir>/example-0.73/node_modules",
       "<rootDir>/example-0.79/node_modules",
       "<rootDir>/example-0.83/node_modules",
       "<rootDir>/lib/"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/example/",
-      "<rootDir>/example-0.73/",
       "<rootDir>/example-0.79/",
       "<rootDir>/example-0.83/"
     ]
@@ -155,7 +150,6 @@
     "node_modules/",
     "lib/",
     "example/",
-    "example-0.73/",
     "example-0.79/",
     "example-0.83/",
     "android/",
