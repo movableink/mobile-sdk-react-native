@@ -153,4 +153,12 @@ public class RNMovableInk: NSObject {
       MIClient.validPasteboardValues = values
     }
   }
+
+  @objc(handlePushNotificationOpenedWithContent:)
+  public func handlePushNotificationOpenedWithContent(content: [String: Any]) {
+    // Task { @MainActor in
+    //   guard let content = content as? [String: Sendable] else { return }
+    //   MIClient.handlePushNotificationOpened(content)
+    // }
+  }
 }

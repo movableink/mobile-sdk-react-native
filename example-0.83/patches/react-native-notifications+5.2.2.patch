@@ -1,0 +1,46 @@
+diff --git a/node_modules/react-native-notifications/lib/android/app/src/main/java/com/wix/reactnativenotifications/fcm/FcmToken.java b/node_modules/react-native-notifications/lib/android/app/src/main/java/com/wix/reactnativenotifications/fcm/FcmToken.java
+index fb1aba4..075312e 100644
+--- a/node_modules/react-native-notifications/lib/android/app/src/main/java/com/wix/reactnativenotifications/fcm/FcmToken.java
++++ b/node_modules/react-native-notifications/lib/android/app/src/main/java/com/wix/reactnativenotifications/fcm/FcmToken.java
+@@ -5,10 +5,13 @@ import android.os.Bundle;
+ import android.util.Log;
+ 
+ import com.facebook.react.ReactApplication;
++import com.facebook.react.ReactHost;
+ import com.facebook.react.ReactInstanceManager;
+ import com.facebook.react.bridge.ReactContext;
+ import com.google.firebase.messaging.FirebaseMessaging;
+ import com.wix.reactnativenotifications.BuildConfig;
++import com.wix.reactnativenotifications.core.AppLifecycleFacade;
++import com.wix.reactnativenotifications.core.AppLifecycleFacadeHolder;
+ import com.wix.reactnativenotifications.core.JsIOHelper;
+ 
+ import static com.wix.reactnativenotifications.Defs.LOGTAG;
+@@ -88,11 +91,11 @@ public class FcmToken implements IFcmToken {
+     }
+ 
+     protected void sendTokenToJS() {
+-        final ReactInstanceManager instanceManager = ((ReactApplication) mAppContext).getReactNativeHost().getReactInstanceManager();
+-        ReactContext reactContext = instanceManager.getCurrentReactContext();
++        AppLifecycleFacade facade = AppLifecycleFacadeHolder.get();
++        ReactContext reactContext = facade.getRunningReactContext();
+ 
+         if (reactContext == null) {
+-            // If the react context is not available, try to get the current context from the react host (RN0.76).
++            // If the react context is not available, try to get the current context from the react host (RN0.76+).
+             reactContext = ((ReactApplication) mAppContext).getReactHost().getCurrentReactContext();
+         }
+         // Note: Cannot assume react-context exists cause this is an async dispatched service.
+diff --git a/node_modules/react-native-notifications/react-native.config.js b/node_modules/react-native-notifications/react-native.config.js
+index d246b0c..bb1e4a3 100644
+--- a/node_modules/react-native-notifications/react-native.config.js
++++ b/node_modules/react-native-notifications/react-native.config.js
+@@ -4,7 +4,7 @@ module.exports = {
+       ios: {},
+       android: {
+         sourceDir: './lib/android/app',
+-        packageInstance: 'new RNNotificationsPackage(reactNativeHost.getApplication())',
++        packageInstance: 'new RNNotificationsPackage(getApplication())',
+       }
+     },
+   },

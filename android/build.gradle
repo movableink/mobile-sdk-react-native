@@ -1,19 +1,14 @@
 buildscript {
-  // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RNMovableInk_kotlinVersion"]
-
   repositories {
     google()
     mavenCentral()
     maven {
-      url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+      url 'https://central.sonatype.com/repository/maven-snapshots/'
     }
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.2"
-    // noinspection DifferentKotlinGradleVersion
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    // AGP and Kotlin versions provided by the consuming app
   }
 }
 
@@ -21,12 +16,31 @@ def isNewArchitectureEnabled() {
   return rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
 }
 
+/**
+ * Get a property value with fallback logic:
+ * 1. First tries rootProject.ext (set by consuming app)
+ * 2. Falls back to RNMovableInk_ prefixed property (library-specific)
+ * 3. Falls back to RN prefixed property (common React Native pattern)
+ */
 def getExtOrDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["RN" + name]
+  if (rootProject.ext.has(name)) {
+    return rootProject.ext.get(name)
+  }
+  // Try RNMovableInk_ prefix first (library-specific), then RN prefix (common pattern)
+  return project.properties["RNMovableInk_" + name] ?: project.properties["RN" + name]
 }
 
+/**
+ * Get an integer property value with fallback logic.
+ * Same fallback order as getExtOrDefault, but converts to Integer.
+ */
 def getExtOrIntegerDefault(name) {
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["RN" + name]).toInteger()
+  if (rootProject.ext.has(name)) {
+    return rootProject.ext.get(name)
+  }
+  // Try RNMovableInk_ prefix first (library-specific), then RN prefix (common pattern)
+  def value = project.properties["RNMovableInk_" + name] ?: project.properties["RN" + name]
+  return value.toInteger()
 }
 
 def supportsNamespace() {
@@ -40,7 +54,6 @@ def supportsNamespace() {
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-apply plugin: 'org.jetbrains.kotlin.android'
 
 if (isNewArchitectureEnabled()) {
   apply plugin: "com.facebook.react"
@@ -70,22 +83,34 @@ android {
     }
   }
 
-  lintOptions {
+  lint {
     disable "GradleCompatible"
   }
 
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  kotlinOptions {
+    jvmTarget = "17"
+    //freeCompilerArgs += ["-Xskip-metadata-version-check"]
   }
 
 }
+
+// Configure all Kotlin compile tasks to skip metadata version check
+// tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+//   kotlinOptions {
+//     freeCompilerArgs += ["-Xskip-metadata-version-check"]
+//   }
+// }
 
 repositories {
   mavenCentral()
   google()
   maven {
-    url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+    url 'https://central.sonatype.com/repository/maven-snapshots/'
   }
 }
 
@@ -97,9 +122,8 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "com.movableink.sdk:inked:2.2.0"
+  implementation "com.movableink.sdk:inked:2.3.0"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
-
 }
 
 if (isNewArchitectureEnabled()) {

@@ -15,6 +15,8 @@
     "cpp",
     "*.podspec",
     "!lib/typescript/example",
+    "!lib/typescript/example-0.79",
+    "!lib/typescript/example-0.83",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -32,9 +34,11 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install && yarn example pods",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
+    "example79": "yarn --cwd example-0.79",
+    "example83": "yarn --cwd example-0.83",
+    "bootstrap79": "yarn example79 && yarn install && yarn example79 pods",
+    "bootstrap83": "yarn example83 && yarn install && yarn example83 pods",
+    "clean": "del-cli android/build example-0.79/android/build example-0.79/android/app/build example-0.79/ios/build example-0.83/android/build example-0.83/android/app/build example-0.83/ios/build"
   },
   "keywords": [
     "movableink",
@@ -67,6 +71,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.1",
+    "metro-react-native-babel-preset": "^0.77.0",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
@@ -90,7 +95,14 @@
     "preset": "react-native",
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
+      "<rootDir>/example-0.79/node_modules",
+      "<rootDir>/example-0.83/node_modules",
       "<rootDir>/lib/"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/example/",
+      "<rootDir>/example-0.79/",
+      "<rootDir>/example-0.83/"
     ]
   },
   "commitlint": {
@@ -136,7 +148,12 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "example/",
+    "example-0.79/",
+    "example-0.83/",
+    "android/",
+    "ios/"
   ],
   "prettier": {
     "quoteProps": "consistent",
