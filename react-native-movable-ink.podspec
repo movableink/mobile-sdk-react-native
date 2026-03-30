@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
   # Enable when testing local pod
-  s.dependency "MovableInk"
+  #s.dependency "MovableInk"
 
   # Disable when testing local pod
-  # s.dependency "MovableInk", "2.3.0"
+  s.dependency "MovableInk", "3.0.0"
 
   s.dependency "React-Core"
 
